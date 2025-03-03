@@ -8,11 +8,9 @@ class Doctor extends Model
 {
     protected $fillable=[
         'doctor_id',
-        'dni',
-        'gender',
         'name',
         'phone',
         'position',
-        'specialty_id',
+        'specialty_id'
     ];
 }
