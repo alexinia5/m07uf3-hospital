@@ -26,6 +26,6 @@ class Emergency extends Model
 
     public function pacients()
 	{
-		return $this->hasMany(Pacient::class);
+		return $this->hasMany(Patient::class);
 	}
 }
