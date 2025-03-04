@@ -10,6 +10,11 @@ class Room extends Model
         'room_id',
         'availability',
         'date_admission',
-        'foor_number',
+        'floor_number',
     ];
+
+    public function patient()
+	{
+		return $this->hasOne(Patient::class);
+	}
 }

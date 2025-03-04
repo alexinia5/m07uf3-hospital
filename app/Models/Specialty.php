@@ -12,4 +12,14 @@ class Specialty extends Model
         'head_departament',
         'location_departament',
     ];
+
+    public function doctors()
+    {
+        return $this->belongsToMany(Doctor::class);
+    }
+
+    public function doctorBoss()
+    {
+        return $this->belongsTo(Doctor::class);
+    }
 }

@@ -13,4 +13,14 @@ class Nurse extends Model
         'name',
         'phone',
     ];
+
+    public function appointments()
+	{
+		return $this->hasMany(Appointment::class);
+	}
+
+    public function emergencies()
+    {
+        return $this->belongsToMany(Emergency::class);
+    }
 }

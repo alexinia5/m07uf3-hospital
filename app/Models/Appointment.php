@@ -12,9 +12,21 @@ class Appointment extends Model
         'status',
         'motive',
         'floor_num',
-        'oberservations',
-        // medico
-        // enfermero
-        // paciente
+        'observations',
     ];
+
+    public function doctors()
+    {
+        return $this->belongsTo(Doctor::class);
+    }
+
+    public function nurses()
+    {
+        return $this->belongsTo(Nurse::class);
+    }
+
+    public function pacients()
+    {
+        return $this->belongsTo(Pacient::class);
+    }
 }
