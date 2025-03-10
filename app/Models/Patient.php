@@ -13,7 +13,7 @@ class Patient extends Model
         'name',
         'phone',
         'address',
-        'cd',
+        'cp',
     ];
 
     public function doctors()

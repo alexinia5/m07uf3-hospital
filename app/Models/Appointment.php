@@ -9,7 +9,6 @@ class Appointment extends Model
     protected $fillable=[
         'appointment_id',
         'date_hour',
-        'status',
         'motive',
         'floor_num',
         'observations',

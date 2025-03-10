@@ -9,7 +9,6 @@ class Specialty extends Model
     protected $fillable=[
         'specialty_id',
         'name',
-        'head_departament',
         'location_departament',
     ];
 
