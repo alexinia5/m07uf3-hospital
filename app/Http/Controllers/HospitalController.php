@@ -14,27 +14,27 @@ class HospitalController extends Controller
 
     // doctors section
     function doctors() {
-        return view('doctors');
+        return view('doctor');
     }
 
     // nurses section
     function nurses() {
-        return view('nurses');
+        return view('nurse');
     }
 
     // patients section
     function patients() {
-        return view('patients');
+        return view('patient');
     }
 
     // appointments section
     function appointments() {
-        return view('appointments');
+        return view('appointment');
     }
 
     // emergencies section
     function emergencies() {
-        return view('emergencies');
+        return view('emergency');
     }
 
     // specialties section
@@ -49,6 +49,6 @@ class HospitalController extends Controller
 
     // rooms section
     function rooms() {
-        return view('rooms');
+        return view('room');
     }
 }
