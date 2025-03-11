@@ -24,7 +24,7 @@
             <div class="flex justify-between items-center">
                 <h1 class="font-semibold text-3xl text-blue-900">Appointment</h1>
                 <div class="rounded-full bg-blue-700 p-2 w-32 flex justify-center items-center">
-                    <a href="/create" class="text-white">Create new</a>
+                    <a href="/appointments/create" class="text-white">Create new</a>
                 </div>
             </div>
             <div class="flex flex-row h-10 bg-slate-300 rounded-2xl"></div>

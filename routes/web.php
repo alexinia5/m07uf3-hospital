@@ -30,99 +30,99 @@ Route::get('/rooms', [HospitalController::class, 'rooms']);
 
 // Doctor Controller
 // create
-Route::get('/create', [DoctorController::class, 'create_doctor']);
+Route::get('/doctors/create', [DoctorController::class, 'create_doctor']);
 // store
-Route::post('/store', [DoctorController::class, 'store_doctor']);
+Route::post('/doctors/store', [DoctorController::class, 'store_doctor']);
 // edit
-Route::get('/edit/{id}', [DoctorController::class, 'edit_doctor']);
+Route::get('/doctors/edit/{id}', [DoctorController::class, 'edit_doctor']);
 // update
-Route::put('/update/{id}', [DoctorController::class, 'update_doctor']);
+Route::put('/doctors/update/{id}', [DoctorController::class, 'update_doctor']);
 // delete
-Route::delete('/delete/{id}', [DoctorController::class, 'delete_doctor']);
+Route::delete('/doctors/delete/{id}', [DoctorController::class, 'delete_doctor']);
 
 
 
 // Nurse Controller
 // create
-Route::get('/create', [NurseController::class, 'create_nurse']);
+Route::get('/nurses/create', [NurseController::class, 'create_nurse']);
 // store
-Route::post('/store', [NurseController::class, 'store_nurse']);
+Route::post('/nurses/store', [NurseController::class, 'store_nurse']);
 // edit
-Route::get('/edit/{id}', [NurseController::class, 'edit_nurse']);
+Route::get('/nurses/edit/{id}', [NurseController::class, 'edit_nurse']);
 // update
-Route::put('/update/{id}', [NurseController::class, 'update_nurse']);
+Route::put('/nurses/update/{id}', [NurseController::class, 'update_nurse']);
 // delete
-Route::delete('/delete/{id}', [NurseController::class, 'delete_nurse']);
+Route::delete('/nurses/delete/{id}', [NurseController::class, 'delete_nurse']);
 
 
 
 // Patient Controller
 // create
-Route::get('/create', [PatientController::class, 'create_patient']);
+Route::get('/patients/create', [PatientController::class, 'create_patient']);
 // store
-Route::post('/store', [PatientController::class, 'store_patient']);
+Route::post('/patients/store', [PatientController::class, 'store_patient']);
 // edit
-Route::get('/edit/{id}', [PatientController::class, 'edit_patient']);
+Route::get('/patients/edit/{id}', [PatientController::class, 'edit_patient']);
 // update
-Route::put('/update/{id}', [PatientController::class, 'update_patient']);
+Route::put('/patients/update/{id}', [PatientController::class, 'update_patient']);
 // delete
-Route::delete('/delete/{id}', [PatientController::class, 'delete_patient']);
+Route::delete('/patients/delete/{id}', [PatientController::class, 'delete_patient']);
 
 
 
 // Appointment Controller
 // creates
-Route::get('/create', [AppointmentController::class, 'create_appointment']);
+Route::get('/appointments/create', [AppointmentController::class, 'create_appointment']);
 // store
-Route::post('/store', [AppointmentController::class, 'store_appointment']);
+Route::post('/appointments/store', [AppointmentController::class, 'store_appointment']);
 // edit
-Route::get('/edit/{id}', [AppointmentController::class, 'edit_appointment']);
+Route::get('/appointments/edit/{id}', [AppointmentController::class, 'edit_appointment']);
 // update
-Route::put('/update/{id}', [AppointmentController::class, 'update_appointment']);
+Route::put('/appointments/update/{id}', [AppointmentController::class, 'update_appointment']);
 // delete
-Route::delete('/delete/{id}', [AppointmentController::class, 'delete_appointment']);
+Route::delete('/appointments/delete/{id}', [AppointmentController::class, 'delete_appointment']);
 
 
 
 // Emergency Controller
 // create
-Route::get('/create', [EmergencyController::class, 'create_emergency']);
+Route::get('/emergencies/create', [EmergencyController::class, 'create_emergency']);
 // store
-Route::post('/store', [EmergencyController::class, 'store_emergency']);
+Route::post('/emergencies/store', [EmergencyController::class, 'store_emergency']);
 // edit
-Route::get('/edit/{id}', [EmergencyController::class, 'edit_emergency']);
+Route::get('/emergencies/edit/{id}', [EmergencyController::class, 'edit_emergency']);
 // update
-Route::put('/update/{id}', [EmergencyController::class, 'update_emergency']);
+Route::put('/emergencies/update/{id}', [EmergencyController::class, 'update_emergency']);
 // delete
-Route::delete('/delete/{id}', [EmergencyController::class, 'delete_emergency']);
+Route::delete('/emergencies/delete/{id}', [EmergencyController::class, 'delete_emergency']);
 
 
 
 // Medical History Controller
 // create
-Route::get('/create', [MedicalHistoryController::class, 'create_medical_history']);
+Route::get('/medical_histories/create', [MedicalHistoryController::class, 'create_medical_history']);
 // store
-Route::post('/store', [MedicalHistoryController::class, 'store_medical_history']);
+Route::post('/medical_histories/store', [MedicalHistoryController::class, 'store_medical_history']);
 // edit
-Route::get('/edit/{id}', [MedicalHistoryController::class, 'edit_medical_history']);
+Route::get('/medical_histories/edit/{id}', [MedicalHistoryController::class, 'edit_medical_history']);
 // update
-Route::put('/update/{id}', [MedicalHistoryController::class, 'update_medical_history']);
+Route::put('/medical_histories/update/{id}', [MedicalHistoryController::class, 'update_medical_history']);
 // delete
-Route::delete('/delete/{id}', [MedicalHistoryController::class, 'delete_medical_history']);
+Route::delete('/medical_histories/delete/{id}', [MedicalHistoryController::class, 'delete_medical_history']);
 
 
 
 // Room Controller
 // create
-Route::get('/create', [RoomController::class, 'create_room']);
+Route::get('/rooms/create', [RoomController::class, 'create_room']);
 // store
-Route::post('/store', [RoomController::class, 'store_room']);
+Route::post('/rooms/store', [RoomController::class, 'store_room']);
 // edit
-Route::get('/edit/{id}', [RoomController::class, 'edit_room']);
+Route::get('/rooms/edit/{id}', [RoomController::class, 'edit_room']);
 // update
-Route::put('/update/{id}', [RoomController::class, 'update_room']);
+Route::put('/rooms/update/{id}', [RoomController::class, 'update_room']);
 // delete
-Route::delete('/delete/{id}', [RoomController::class, 'delete_room']);
+Route::delete('/rooms/delete/{id}', [RoomController::class, 'delete_room']);
 
 
 // Route::middleware('auth')->group(function () {
