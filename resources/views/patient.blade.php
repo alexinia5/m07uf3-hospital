@@ -45,11 +45,12 @@
                         <tr>
                           <th scope="col" class="px-6 py-4 font-medium text-gray-900">Name</th>
                           <th scope="col" class="px-6 py-4 font-medium text-gray-900">Date Birth</th>
+                          <th scope="col" class="px-6 py-4 font-medium text-gray-900">DNI</th>
                           <th scope="col" class="px-6 py-4 font-medium text-gray-900">Gender</th>
-                          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Status</th>
-                          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Last visit</th>
-                          <th scope="col" class="px-6 py-4 font-medium text-gray-900"></th>
-
+                          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Phone</th>
+                          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Address</th>
+                          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Zip Postal</th>
+                          <th scope="col" class="px-6 py-4 font-medium text-gray-900">Actions</th>
                         </tr>
                       </thead>
                       <tbody class="divide-y divide-gray-100 border-t border-gray-100">
@@ -69,16 +70,11 @@
                                   </div>
                                 </th>
                                 <td class="px-6 py-4">12-10-2000</td>
+                                <td class="px-6 py-4">70384818</td>
                                 <td class="px-6 py-4">Female</td>
-                                <td class="px-6 py-4">
-                                  <span
-                                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                                  >
-                                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                                    Active
-                                  </span>
-                                </td>
-                                <td class="px-6 py-4">12-04-2024</td>
+                                <td class="px-6 py-4">685857576</td>
+                                <td class="px-6 py-4">Carrer Zamora Sánchez 1-3</td>
+                                <td class="px-6 py-4">068945</td>
                                 <td class="px-6 py-4">
                                   <div class="flex justify-end gap-4">
                                     <a x-data="{ tooltip: 'Delete' }" href="/patients/delete">

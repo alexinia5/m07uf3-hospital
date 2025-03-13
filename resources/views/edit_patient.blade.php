@@ -7,7 +7,7 @@
     <title>Edit Patient</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="p-0 m-0 bg-blue-50">
     <div class="container p-9 w-full h-screen flex flex-row gap-8">
         <nav class="bg-blue-700 w-28 rounded-2xl p-5 flex flex-col items-center gap-32">
             <a href="/" class="font-semibold text-white">Hospital</a>
@@ -21,9 +21,6 @@
             </ul>
         </nav>
         <main class="flex flex-col items-center gap-10 w-full">
-            <div class="flex flex-row justify-around items-center w-full h-16 bg-blue-100 rounded-xl p-4">
-                <h1 class="font-semibold text-blue-950">PATIENT MANAGER</h1>
-            </div>
             <div class="bg-white w-full max-w-lg border-2 border-zinc-200 rounded-xl p-4 flex flex-col gap-6 items-center">
                 <h1 class="text-2xl font-semibold">Update patient data</h1>
                 <form class="w-full max-w-lg">

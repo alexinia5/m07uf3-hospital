@@ -7,7 +7,7 @@
     <title>Create Patient</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="p-0 m-0 bg-blue-50">
     <div class="container p-9 w-full h-screen flex flex-row gap-8">
         <nav class="bg-blue-700 w-28 rounded-2xl p-5 flex flex-col items-center gap-32">
             <a href="/" class="font-semibold text-white">Hospital</a>
@@ -21,9 +21,6 @@
             </ul>
         </nav>
         <main class="flex flex-col items-center gap-10 w-full">
-            <div class="flex flex-row justify-around items-center w-full h-16 bg-blue-100 rounded-xl p-4">
-                <h1 class="font-semibold text-blue-950">PATIENT MANAGER</h1>
-            </div>
             <div class="bg-white w-full max-w-lg border-2 border-zinc-200 rounded-xl p-4 flex flex-col gap-6 items-center">
                 <h1 class="text-2xl font-semibold">Add new patient</h1>
                 <form class="w-full max-w-lg">
@@ -36,7 +33,7 @@
                       </div>
                       <div class="w-full md:w-1/2 px-3">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-                          Phone
+                          Date Birth
                         </label>
                         <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text">
                       </div>
@@ -49,6 +46,12 @@
                       <div class="w-full md:w-1/2 px-3">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                           Gender
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text">
+                      </div>
+                      <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                          Phone
                         </label>
                         <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text">
                       </div>
@@ -83,7 +86,7 @@
                         <span
                         class="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-indigo-50 rounded-lg"></span>
                         <span
-                        class="relative w-full text-base font-semibold text-left text-white transition-colors duration-200 ease-in-out group-hover:text-indigo-600">Create Patient</span>
+                        class="relative w-full text-base font-semibold text-left text-white transition-colors duration-200 ease-in-out group-hover:text-indigo-600">Create</span>
                     </button>
                 </div>
             </div>
