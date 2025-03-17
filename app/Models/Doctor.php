@@ -26,13 +26,8 @@ class Doctor extends Model
     }
 
     public function specialties()
-    {
-        return $this->belongsTo(Specialty::class);
-    }
-
-    public function specialtiesBoss()
 	{
-		return $this->hasMany(Specialty::class);
+		return $this->hasOne(Specialty::class);
 	}
 
     public function appointments()

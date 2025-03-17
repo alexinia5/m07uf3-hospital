@@ -19,10 +19,8 @@ return new class extends Migration
             $table->string('phone');
             $table->string('position', 30);
 
-            // $table->unsignedBigInteger('specialty_id');
-            // $table->foreign('specialty_id')
-            // ->references('specialty_id')
-            // ->on('specialties');
+            $table->unsignedBigInteger('specialty_id');
+			$table->foreign('specialty_id')->references('specialty_id')->on('specialties');
         });
     }
 

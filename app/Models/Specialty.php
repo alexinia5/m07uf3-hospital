@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
 class Specialty extends Model
 {
+    use HasFactory, Notifiable;
+
     public $timestamps = false;
 
     protected $fillable=[
@@ -15,12 +18,8 @@ class Specialty extends Model
     ];
 
     public function doctors()
-    {
-        return $this->hasMany(Doctor::class);
-    }
+	{
+		return $this->belongsTo(Doctor::class);
+	}
 
-    public function doctorBoss()
-    {
-        return $this->belongsTo(Doctor::class);
-    }
 }

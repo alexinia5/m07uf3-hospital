@@ -19,6 +19,8 @@ Route::get('/patients', [HospitalController::class, 'patients']);
 Route::get('/medicalhistories', [HospitalController::class, 'medicalhistories']);
 // doctors
 Route::get('/doctors', [HospitalController::class, 'doctors']);
+// specialty
+Route::get('/specialties', [HospitalController::class, 'specialties']);
 // nurses
 Route::get('/nurses', [HospitalController::class, 'nurses']);
 // appointments

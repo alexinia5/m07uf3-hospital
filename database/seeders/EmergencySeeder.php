@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Emergency;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -23,5 +24,7 @@ class EmergencySeeder extends Seeder
             'nurse_id' => '378',
             'patient_id' => '734',
         ]);
+
+        Emergency::factory(10)->create();
     }
 }

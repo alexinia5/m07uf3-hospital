@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Patient;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -22,5 +23,7 @@ class PatientSeeder extends Seeder
             'address' => 'Av. Josep Roura, 2-1',
             'cp' => '09021',
         ]);
+
+        Patient::factory(10)->create();
     }
 }

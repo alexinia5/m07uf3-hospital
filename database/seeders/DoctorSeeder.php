@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Doctor;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +21,9 @@ class DoctorSeeder extends Seeder
             'name' => 'Selena Herrera Marín',
             'phone' => '690358201',
             'position' => 'Pediatric',
-            'specialty_id' => 'Pediatrics',
+            'specialty_id' => '2',
         ]);
+
+        Doctor::factory(10)->create();
     }
 }

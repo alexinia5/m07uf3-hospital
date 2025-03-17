@@ -21,20 +21,20 @@ class RoomFactory extends Factory
     public function definition(): array
     {
         $availability = $this->faker->randomElement(['Yes', 'No']);
-        $patientId = Patient::inRandomOrder()->first()->patient_id;
+        $patient_id = Patient::inRandomOrder()->first()->patient_id;
 
         if ($availability === 'Yes') {
-            $patientId;
+            $patient_id;
         } else {
-            $patientId = null;
+            $patient_id = null;
         }
 
         return [
-            'rooms_id' => $this->faker->unique()->numerify(),
+            // 'rooms_id' => $this->faker->unique()->numerify(),
             'availability' => $availability,
             'date_admission' => $this->faker->date(),
             'floor_num' => $this->faker->numerify('##-##'),
-            'patient_id' => $patientId,
+            'patient_id' => $patient_id,
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Nurse;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -20,5 +21,7 @@ class NurseSeeder extends Seeder
             'name' => 'Clara Sánchez Molina',
             'phone' => '694382942',
         ]);
+
+        Nurse::factory(10)->create();
     }
 }

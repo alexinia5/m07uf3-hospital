@@ -20,17 +20,17 @@ class DoctorFactory extends Factory
     
     public function definition(): array
     {
-        // $specialtyId = Specialty::inRandomOrder()->first()->doctor_id;
+        $specialtyId = Specialty::inRandomOrder()->first()->specialty_id;
 
         return [
-            'doctor_id' => $this->faker->unique()->numerify(),
+            // 'doctor_id' => $this->faker->unique()->numerify(),
             'dni' => $this->faker->unique()->numerify('########'),
             'gender' => $this->faker->randomElement(['male', 'female']),
             'name' => $this->faker->name(),
             'phone' => $this->faker->phoneNumber(9),
             'position' => $this->faker->randomElement(['General Practitioner (GP)', 'Specialist Doctor', 'Primary Care Physician (PCP)',
             'Emergency Physician', 'Family Medicine Doctor', 'Surgeon', 'Pediatrician']),
-            // 'specialty_id' => $specialtyId,
+            'specialty_id' => $specialtyId,
         ];
     }
 }

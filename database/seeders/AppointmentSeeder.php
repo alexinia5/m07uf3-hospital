@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Appointment;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\DB;
 
@@ -24,5 +25,7 @@ class AppointmentSeeder extends Seeder
             'nurse_id' => '34553',
             'patient_id' => '45645',
         ]);
+
+        Appointment::factory(10)->create();
     }
 }

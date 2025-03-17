@@ -25,7 +25,7 @@ class EmergencyFactory extends Factory
         $nurse_id = Patient::inRandomOrder()->first()->nurse_id;
 
         return [
-            'emergency_id' => $this->faker->unique()->numerify(),
+            // 'emergency_id' => $this->faker->unique()->numerify(),
             'date' => $this->faker->date(),
             'level' => $this->faker->randomElement(['Low', 'Mild', 'Moderate', 'Sever']),
             'diagnosis' => $this->faker->text(50),

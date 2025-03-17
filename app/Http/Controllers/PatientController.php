@@ -22,16 +22,16 @@ class PatientController extends Controller
             'phone' => 'required|integer|max:9',
             'address' => 'required|string|max:50',
             'cp' => 'required|string|max:5',
-        ],
-        [
-            'dni.required' => 'Already exists this DNI.',
-            'name.required' => 'Already exists this name.',
-            'phone.required' => 'Already exists this phone.',
-        ]);
+        ]
+        // [
+        //     'dni.required' => 'Already exists this DNI.',
+        //     'name.required' => 'Already exists this name.',
+        //     'phone.required' => 'Already exists this phone.',
+        );
 
         Patient::create($validatedData);
 
-        return redirect()->route('patient')->with('success', 'Patient created correctly.');
+        return view('patient');
     }
 
     // edit

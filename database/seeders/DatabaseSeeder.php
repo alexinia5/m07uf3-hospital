@@ -21,8 +21,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        Specialty::factory(10)->create();
         Doctor::factory(10)->create();
-        // Specialty::factory(10)->create();
         Nurse::factory(10)->create();
         Patient::factory(10)->create();
         MedicalHistory::factory(10)->create();
