@@ -27,7 +27,7 @@ class AppointmentFactory extends Factory
         $patientId = Patient::inRandomOrder()->first()->patient_id;
 
         return [
-            // 'appointment_id' => $this->faker->unique()->numerify(),
+            'appointment_id' => $this->faker->unique()->numerify(),
             'date_hour' => $this->faker->dateTimeBetween('-1 year', '+1 year')->format('Y-m-d H:i:s'),
             'motive' => $this->faker->randomElement(['Consultation', 'Revision', 'Emergency']),
             'floor_num' => $this->faker->numerify('##-##'),

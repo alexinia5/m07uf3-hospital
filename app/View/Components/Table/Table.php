@@ -13,11 +13,14 @@ class Table extends Component
      */
     public $dataRow;
     public $dataColumn;
+    // public $table;
+
 
     public function __construct($dataRow, $dataColumn)
     {
         $this->dataRow = $dataRow;
         $this->dataColumn = $dataColumn;
+        // $this->table = $table;
     }
 
     /**

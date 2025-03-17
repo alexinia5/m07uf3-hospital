@@ -30,7 +30,7 @@ class RoomFactory extends Factory
         }
 
         return [
-            // 'rooms_id' => $this->faker->unique()->numerify(),
+            'rooms_id' => $this->faker->unique()->numerify(),
             'availability' => $availability,
             'date_admission' => $this->faker->date(),
             'floor_num' => $this->faker->numerify('##-##'),

@@ -23,7 +23,7 @@ class DoctorFactory extends Factory
         // $specialtyId = Specialty::inRandomOrder()->first()->doctor_id;
 
         return [
-            // 'doctor_id' => $this->faker->unique()->numerify(),
+            'doctor_id' => $this->faker->unique()->numerify(),
             'dni' => $this->faker->unique()->numerify('########'),
             'gender' => $this->faker->randomElement(['male', 'female']),
             'name' => $this->faker->name(),

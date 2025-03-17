@@ -15,9 +15,6 @@ return new class extends Migration
             $table->id('specialty_id');
             $table->string('name', 40);
             $table->string('location_departament', 40);
-
-            $table->unsignedBigInteger('head_departament');
-            $table->foreign('head_departament')->references('doctor_id')->on('doctors');
         });
     }
 

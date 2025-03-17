@@ -16,7 +16,6 @@ class SpecialtySeeder extends Seeder
         DB::table('specialties')->insert([
             'specialty_id' => '9',
             'name' => 'Cardiology',
-            'head_departament' => '2',
             'location_departament' => 'Cardiology Departament',
         ]);
     }

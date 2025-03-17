@@ -20,7 +20,7 @@ class PatientFactory extends Factory
     public function definition(): array
     {
         return [
-            // 'patient_id' => $this->faker->unique()->numerify(),
+            'patient_id' => $this->faker->unique()->numerify(),
             'dni' => $this->faker->numerify('########'),
             'gender' => $this->faker->randomElement(['male', 'female']),
             'name' => $this->faker->name(),

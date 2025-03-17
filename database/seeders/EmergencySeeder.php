@@ -19,6 +19,8 @@ class EmergencySeeder extends Seeder
             'level' => 'Low',
             'diagnosis' => 'Gastroenteritis',
             'floor_num' => '3-2',
+            'doctor_id' => '103',
+            'nurse_id' => '378',
             'patient_id' => '734',
         ]);
     }

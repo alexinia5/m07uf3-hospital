@@ -21,13 +21,17 @@ class EmergencyFactory extends Factory
     public function definition(): array
     {
         $patientId = Patient::inRandomOrder()->first()->patient_id;
+        $doctor_id = Patient::inRandomOrder()->first()->doctor_id;
+        $nurse_id = Patient::inRandomOrder()->first()->nurse_id;
 
         return [
-            // 'emergency_id' => $this->faker->unique()->numerify(),
+            'emergency_id' => $this->faker->unique()->numerify(),
             'date' => $this->faker->date(),
             'level' => $this->faker->randomElement(['Low', 'Mild', 'Moderate', 'Sever']),
             'diagnosis' => $this->faker->text(50),
             'floor_num' => $this->faker->numerify('##-##'),
+            'doctor_id' => $doctor_id,
+            'nurse_id' => $nurse_id,
             'patient_id' => $patientId,
         ];
     }
