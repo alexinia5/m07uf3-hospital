@@ -82,7 +82,7 @@ Route::post('/nurses/store', [NurseController::class, 'store_nurse']);
 // edit
 Route::get('/nurses/edit/{id}', [NurseController::class, 'edit_nurse']);
 // update
-Route::put('/nurses/update/{id}', [NurseController::class, 'update_nurse']);
+Route::post('/nurses/update/{id}', [NurseController::class, 'update_nurse']);
 // delete
 Route::delete('/nurses/delete/{id}', [NurseController::class, 'delete_nurse']);
 

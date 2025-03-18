@@ -12,10 +12,12 @@ class CreateForm extends Component
      * Create a new component instance.
      */
     public $data;
+    public $route;
 
-    public function __construct($data)
+    public function __construct($data, $route)
     {
         $this->data = $data;
+        $this->route = $route;
     }
     
     /**

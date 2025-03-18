@@ -12,13 +12,15 @@ class UpdateForm extends Component
      * Create a new component instance.
      */
     public $data;
+    public $route;
 
-    public function __construct($data)
+    public function __construct($data, $route)
     {
         $this->data = $data;
+        $this->route = $route;
     }
 
-    /**
+    /** 
      * Get the view / contents that represent the component.
      */
     public function render(): View|Closure|string
