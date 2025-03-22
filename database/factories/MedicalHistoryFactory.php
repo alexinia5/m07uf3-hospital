@@ -20,10 +20,9 @@ class MedicalHistoryFactory extends Factory
 
     public function definition(): array
     {
-        $patientId = Patient::inRandomOrder()->first()->patient_id;
+        $patientId = Patient::inRandomOrder()->first()->id;
         
         return [
-            'history_id' => $this->faker->unique()->numerify(),
             'date' => $this->faker->date(),
             'diagnosis' => $this->faker->text(50),
             'treatment' => $this->faker->text(50),

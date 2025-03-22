@@ -13,7 +13,7 @@
       <main class="flex flex-col items-center gap-10 w-full">
         <div class="bg-white w-full max-w-lg border-2 border-zinc-200 rounded-xl p-4 flex flex-col gap-6 items-center">
           <h1 class="text-2xl font-semibold">Create a patient</h1>
-          <x-forms.create-form :data="['ID', 'DNI', 'Name', 'Gender', 'Phone', 'Address', 'Zip Code']"/>
+          <x-forms.create-form :route="'/patients/store'" :data="['ID', 'DNI', 'Name', 'Gender', 'Phone', 'Address', 'Zip Code']"/>
         </div>
       </main>
     </div>

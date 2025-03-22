@@ -21,7 +21,7 @@ class RoomFactory extends Factory
     public function definition(): array
     {
         $availability = $this->faker->randomElement(['Yes', 'No']);
-        $patient_id = Patient::inRandomOrder()->first()->patient_id;
+        $patient_id = Patient::inRandomOrder()->first()->id;
 
         if ($availability === 'Yes') {
             $patient_id;
@@ -30,7 +30,6 @@ class RoomFactory extends Factory
         }
 
         return [
-            // 'rooms_id' => $this->faker->unique()->numerify(),
             'availability' => $availability,
             'date_admission' => $this->faker->date(),
             'floor_num' => $this->faker->numerify('##-##'),

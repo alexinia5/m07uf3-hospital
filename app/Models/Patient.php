@@ -12,7 +12,6 @@ class Patient extends Model
     public $timestamps = false;
 
     protected $fillable=[
-        'patient_id',
         'dni',
         'gender',
         'name',
@@ -21,11 +20,6 @@ class Patient extends Model
         'cp',
     ];
 
-    public function doctors()
-    {
-        return $this->belongsToMany(Doctor::class);
-    }
-
     public function appointments()
 	{
 		return $this->hasMany(Appointment::class);
@@ -33,7 +27,7 @@ class Patient extends Model
 
     public function emergencies()
     {
-        return $this->belongsTo(Emergency::class);
+        return $this->hasOne(Emergency::class);
     }
 
     public function medicalHistory()

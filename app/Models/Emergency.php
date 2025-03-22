@@ -13,7 +13,6 @@ class Emergency extends Model
     public $timestamps = false;
 
     protected $fillable=[
-        'emergency_id',
         'date',
         'level',
         'diagnosis',
@@ -22,16 +21,16 @@ class Emergency extends Model
 
     public function doctors()
     {
-        return $this->belongsToMany(Doctor::class);
+        return $this->belongsTo(Doctor::class);
     }
 
     public function nurses()
     {
-        return $this->belongsToMany(Nurse::class);
+        return $this->belongsTo(Nurse::class);
     }
 
-    public function pacients()
+    public function patients()
 	{
-		return $this->hasMany(Patient::class);
+		return $this->belongsTo(Patient::class);
 	}
 }

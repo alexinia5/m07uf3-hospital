@@ -15,7 +15,6 @@ class SpecialtySeeder extends Seeder
     public function run(): void
     {
         DB::table('specialties')->insert([
-            'specialty_id' => '0',
             'name' => 'Cardiology',
             'location_departament' => 'Cardiology Departament',
         ]);

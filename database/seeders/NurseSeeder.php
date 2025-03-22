@@ -15,7 +15,6 @@ class NurseSeeder extends Seeder
     public function run(): void
     {
         DB::table('nurses')->insert([
-            'nurse_id' => '34553',
             'dni' => '59302029',
             'gender' => 'Female',
             'name' => 'Clara Sánchez Molina',

@@ -12,7 +12,6 @@ class Room extends Model
     public $timestamps = false;
 
     protected $fillable=[
-        'room_id',
         'availability',
         'date_admission',
         'floor_num',

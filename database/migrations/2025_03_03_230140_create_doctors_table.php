@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('doctors', function (Blueprint $table) {
-            $table->id('doctor_id');
+            $table->id();
             $table->string('dni', 8);
             $table->string('gender', 10);
             $table->string('name', 50);
@@ -20,7 +20,10 @@ return new class extends Migration
             $table->string('position', 30);
 
             $table->unsignedBigInteger('specialty_id');
-			$table->foreign('specialty_id')->references('specialty_id')->on('specialties');
+			$table->foreign('specialty_id')
+            ->references('id')
+            ->on('specialties')
+            ->onDelete('cascade');
         });
     }
 

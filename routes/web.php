@@ -94,11 +94,11 @@ Route::get('/appointments/create', [AppointmentController::class, 'create_appoin
 // store
 Route::post('/appointments/store', [AppointmentController::class, 'store_appointment']);
 // edit
-Route::get('/appointments/edit/{id}', [AppointmentController::class, 'edit_appointment']);
+Route::get('/appointments/edit/{appointment_id}', [AppointmentController::class, 'edit_appointment']);
 // update
-Route::put('/appointments/update/{id}', [AppointmentController::class, 'update_appointment']);
+Route::put('/appointments/update/{appointment_id}', [AppointmentController::class, 'update_appointment']);
 // delete
-Route::delete('/appointments/delete/{id}', [AppointmentController::class, 'delete_appointment']);
+Route::delete('/appointments/delete/{appointment_id}', [AppointmentController::class, 'delete_appointment']);
 
 
 

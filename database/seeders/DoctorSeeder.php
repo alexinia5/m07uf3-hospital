@@ -15,7 +15,6 @@ class DoctorSeeder extends Seeder
     public function run(): void
     {
         DB::table('doctors')->insert([
-            'doctor_id' => '23423',
             'dni' => '83935802',
             'gender' => 'Female',
             'name' => 'Selena Herrera Marín',

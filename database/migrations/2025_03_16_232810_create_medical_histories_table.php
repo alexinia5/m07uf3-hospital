@@ -19,7 +19,7 @@ return new class extends Migration
 
             $table->unsignedBigInteger('patient_id')->unique();
             $table->foreign('patient_id')
-			->references('patient_id')
+			->references('id')
 			->on('patients');
         });
     }

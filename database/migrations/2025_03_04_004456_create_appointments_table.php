@@ -24,15 +24,15 @@ return new class extends Migration
 		    $table->unsignedBigInteger('patient_id');
 
             $table->foreign('doctor_id')
-            ->references('doctor_id')
+            ->references('id')
             ->on('doctors');
 
             $table->foreign('nurse_id')
-            ->references('nurse_id')
+            ->references('id')
             ->on('nurses');
 
             $table->foreign('patient_id')
-            ->references('patient_id')
+            ->references('id')
             ->on('patients');
         });
     }

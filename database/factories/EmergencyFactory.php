@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Doctor;
 use App\Models\Emergency;
+use App\Models\Nurse;
 use App\Models\Patient;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -20,12 +22,11 @@ class EmergencyFactory extends Factory
 
     public function definition(): array
     {
-        $patientId = Patient::inRandomOrder()->first()->patient_id;
-        $doctor_id = Patient::inRandomOrder()->first()->doctor_id;
-        $nurse_id = Patient::inRandomOrder()->first()->nurse_id;
+        $patientId = Patient::inRandomOrder()->first()->id;
+        $doctor_id = Doctor::inRandomOrder()->first()->id;
+        $nurse_id = Nurse::inRandomOrder()->first()->id;
 
         return [
-            // 'emergency_id' => $this->faker->unique()->numerify(),
             'date' => $this->faker->date(),
             'level' => $this->faker->randomElement(['Low', 'Mild', 'Moderate', 'Sever']),
             'diagnosis' => $this->faker->text(50),

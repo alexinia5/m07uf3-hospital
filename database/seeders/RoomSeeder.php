@@ -15,7 +15,6 @@ class RoomSeeder extends Seeder
     public function run(): void
     {
         DB::table('rooms')->insert([
-            'rooms_id' => '342342',
             'availability' => 'No',
             'date_admission' => '2025-11-02 18:20:32',
             'floor_num' => '1-2',

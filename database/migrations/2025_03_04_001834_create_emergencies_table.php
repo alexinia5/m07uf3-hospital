@@ -12,15 +12,26 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('emergencies', function (Blueprint $table) {
-            $table->id('emergency_id');
+            $table->id();
             $table->date('date');
             $table->string('level', 15);
             $table->string('diagnosis', 50);
             $table->string('floor_num', 20);
 
+            $table->unsignedBigInteger('doctor_id')->nullable(false);
+            $table->unsignedBigInteger('nurse_id');
             $table->unsignedBigInteger('patient_id');
+
+            $table->foreign('doctor_id')
+            ->references('id')
+            ->on('doctors');
+
+            $table->foreign('nurse_id')
+            ->references('id')
+            ->on('nurses');
+            
             $table->foreign('patient_id')
-            ->references('patient_id')
+            ->references('id')
             ->on('patients');
         });
     }

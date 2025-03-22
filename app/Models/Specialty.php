@@ -12,7 +12,6 @@ class Specialty extends Model
     public $timestamps = false;
 
     protected $fillable=[
-        'specialty_id',
         'name',
         'location_departament',
     ];

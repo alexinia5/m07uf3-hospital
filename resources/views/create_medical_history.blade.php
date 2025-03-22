@@ -13,7 +13,7 @@
       <main class="flex items-center justify-center w-full bg-[url('./img/backblue.jpeg')] bg-cover bg-center h-screen p-6 rounded-xl border border-neutral-200">
         <div class="bg-white w-full max-w-lg border-2 border-zinc-200 rounded-xl p-4 flex flex-col gap-6 items-center">
           <h1 class="text-2xl font-semibold">Make a room</h1>
-          <x-forms.create-form :data="['ID', 'Date', 'Diagnosis', 'Treatment', 'Patient']"/>
+          <x-forms.create-form :route="'/medicalhistories/store'" :data="['ID', 'Date', 'Diagnosis', 'Treatment', 'Patient']"/>
         </div>
       </main>
     </div>

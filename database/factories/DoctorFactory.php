@@ -20,10 +20,9 @@ class DoctorFactory extends Factory
     
     public function definition(): array
     {
-        $specialtyId = Specialty::inRandomOrder()->first()->specialty_id;
+        $specialtyId = Specialty::inRandomOrder()->first()->id;
 
         return [
-            // 'doctor_id' => $this->faker->unique()->numerify(),
             'dni' => $this->faker->unique()->numerify('########'),
             'gender' => $this->faker->randomElement(['male', 'female']),
             'name' => $this->faker->name(),

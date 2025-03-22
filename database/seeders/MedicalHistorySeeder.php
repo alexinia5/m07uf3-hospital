@@ -14,13 +14,12 @@ class MedicalHistorySeeder extends Seeder
      */
     public function run(): void
     {
-        // DB::table('medical_histories')->insert([
-        //     'history_id' => '491',
-        //     'date' => '2025:02:02 12:03:03',
-        //     'diagnosis' => 'Gastroenteritis',
-        //     'treatment' => 'Fluids, bland diet and rest',
-        //     'patient_id' => '45650',
-        // ]);
+        DB::table('medical_histories')->insert([
+            'date' => '2025:02:02 12:03:03',
+            'diagnosis' => 'Gastroenteritis',
+            'treatment' => 'Fluids, bland diet and rest',
+            'patient_id' => '4',
+        ]);
 
         MedicalHistory::factory(10)->create();
     }

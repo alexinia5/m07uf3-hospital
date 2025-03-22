@@ -13,7 +13,6 @@ class Nurse extends Model
     public $timestamps = false;
 
     protected $fillable=[
-        'nurse_id',
         'dni',
         'gender',
         'name',
@@ -27,6 +26,6 @@ class Nurse extends Model
 
     public function emergencies()
     {
-        return $this->belongsToMany(Emergency::class);
+        return $this->hasMany(Emergency::class);
     }
 }

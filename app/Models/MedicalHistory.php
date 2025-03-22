@@ -12,7 +12,6 @@ class MedicalHistory extends Model
     public $timestamps = false;
 
     protected $fillable=[
-        'history_id',
         'date',
         'diagnosis',
         'treatment',

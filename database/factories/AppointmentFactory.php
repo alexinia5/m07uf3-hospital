@@ -22,12 +22,11 @@ class AppointmentFactory extends Factory
 
     public function definition(): array
     {
-        $doctorId = Doctor::inRandomOrder()->first()->doctor_id;
-        $nurseId = Nurse::inRandomOrder()->first()->nurse_id;
-        $patientId = Patient::inRandomOrder()->first()->patient_id;
+        $doctorId = Doctor::inRandomOrder()->first()->id;
+        $nurseId = Nurse::inRandomOrder()->first()->id;
+        $patientId = Patient::inRandomOrder()->first()->id;
 
         return [
-            // 'appointment_id' => $this->faker->unique()->numerify(),
             'date_hour' => $this->faker->dateTimeBetween('-1 year', '+1 year')->format('Y-m-d H:i:s'),
             'motive' => $this->faker->randomElement(['Consultation', 'Revision', 'Emergency']),
             'floor_num' => $this->faker->numerify('##-##'),

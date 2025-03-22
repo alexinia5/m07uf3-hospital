@@ -20,7 +20,6 @@ class NurseFactory extends Factory
     public function definition(): array
     {
         return [
-            // 'nurse_id' => $this->faker->unique()->numerify(),
             'dni' => $this->faker->numerify('########'),
             'gender' => $this->faker->randomElement(['male', 'female']),
             'name' => $this->faker->name(),

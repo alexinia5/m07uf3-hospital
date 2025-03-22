@@ -13,7 +13,7 @@
       <main class="flex flex-col items-center gap-10 w-full">
         <div class="bg-white w-full max-w-lg border-2 border-zinc-200 rounded-xl p-4 flex flex-col gap-6 items-center">
           <h1 class="text-2xl font-semibold">Update appointment</h1>
-          <x-forms.update-form :route="'/appointments/store'"/>
+          <x-forms.update-form :route="'/appointments/update'"/>
         </div>
       </main>
     </div>

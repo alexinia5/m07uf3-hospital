@@ -23,7 +23,7 @@ class AppointmentController extends Controller
 
         Appointment::create($validatedData);
 
-        return redirect()->route('appointment')->with('success', 'Appointment created correctly.');
+        return view('appointment')->with('success', 'Appointment created correctly.');
     }
 
     // edit
@@ -44,7 +44,7 @@ class AppointmentController extends Controller
 
         $appointment = Appointment::update($validatedData);
 
-        return redirect()->route('appointment', $appointment)->with('success', 'Appointment updated correctly.');
+        return view('appointment', ['appointments' =>$appointment])->with('success', 'Appointment updated correctly.');
     }
 
     // delete

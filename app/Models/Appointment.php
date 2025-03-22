@@ -13,7 +13,6 @@ class Appointment extends Model
     public $timestamps = false;
 
     protected $fillable=[
-        'appointment_id',
         'date_hour',
         'motive',
         'floor_num',

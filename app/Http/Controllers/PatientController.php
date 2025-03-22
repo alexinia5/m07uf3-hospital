@@ -41,7 +41,7 @@ class PatientController extends Controller
     }
 
     // update
-    public function update_patient(Request $request, Patient $patient) {
+    public function update_patient(Request $request, Patient $patients) {
         $validatedData = $request->validate([
             'dni' => 'required|unique|string|max:8',
             'gender' => 'required|string',
@@ -56,9 +56,9 @@ class PatientController extends Controller
             'phone.required' => 'Already exists this phone.',
         ]);
 
-        $patient = Patient::update($validatedData);
+        $patients = Patient::update($validatedData);
 
-        return redirect()->route('patient', $patient)->with('success', 'Patient updated correctly.');
+        return view('patient', ['patients' => $patients])->with('success', 'Patient updated correctly.');
     }
 
     // delete

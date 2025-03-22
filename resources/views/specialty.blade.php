@@ -18,7 +18,8 @@
                 </div>
             </div>
             <div class="table-pagination w-full h-full flex flex-col items-start gap-6">
-                <x-table.table :dataRow="$specialties" :dataColumn="['ID', 'Name', 'Location Departament', 'Actions']"/>
+                <x-table.table :dataRow="$specialties" :dataColumn="['ID', 'Name', 'Location Departament', 'Actions']"
+                :table="'specialties'"/>
                 <x-pagination.pagination></x-pagination.pagination>
             </div>
         </main>
