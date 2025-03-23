@@ -29,17 +29,17 @@ class NurseController extends Controller
 
         Nurse::create($validatedData);
 
-        return redirect()->route('nurse')->with('success', 'Nurse created correctly.');
+        return redirect('/nurses')->with('success', 'Nurse created correctly.');
     }
 
     // edit
     public function edit_nurse($id) {
-        $nurse=Nurse::findOrFail($id);
-        return view('edit_nurse', ['nurse' => $nurse]);
+        $nurses=Nurse::findOrFail($id);
+        return view('edit_nurse', compact($nurses));
     }
 
     // update
-    public function update_nurse(Request $request, Nurse $nurse) {
+    public function update_nurse(Request $request, Nurse $nurses) {
         $validatedData = $request->validate([
             'dni' => 'required|unique|string|max:8',
             'gender' => 'required|string',
@@ -53,14 +53,14 @@ class NurseController extends Controller
             'phone.required' => 'Already exists this phone.',
         ]);
 
-        $nurse = Nurse::update($validatedData);
+        $nurses->update($validatedData);
 
-        return redirect()->route('nurse', $nurse)->with('success', 'Nurse updated correctly.');
+        return view('nurse', compact('nurses'))->with('success', 'Nurse updated correctly.');
     }
 
     // delete
     function delete_nurse($id) {
-        $nurse = Nurse::destroy($id);
-        return view('nurse', ['nurse' => $nurse]);
+        Nurse::destroy($id);
+        return redirect('/nurses')->with('success', 'Nurse deleted.');
     }
 }

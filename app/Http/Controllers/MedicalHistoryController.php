@@ -22,31 +22,31 @@ class MedicalHistoryController extends Controller
 
         MedicalHistory::create($validatedData);
 
-        return redirect()->route('medical_history')->with('success', 'Medical history created correctly.');
+        return redirect('/medicalhistories')->with('success', 'Medical history created correctly.');
     }
 
     // edit
     public function edit_medical_history($id) {
-        $medical_history=MedicalHistory::findOrFail($id);
-        return view('edit_medical_history', ['medical_history' => $medical_history]);
+        $medical_histories=MedicalHistory::findOrFail($id);
+        return view('edit_medical_history', compact('medical_histories'));
     }
 
     // update
-    public function update_medical_history(Request $request, MedicalHistory $medical_history) {
+    public function update_medical_history(Request $request, MedicalHistory $medical_histories) {
         $validatedData = $request->validate([
             'date' => 'required|date',
             'diagnosis' => 'required|string|max:50',
             'treatment' => 'required|string|max:50',
         ]);
 
-        $medical_history = MedicalHistory::update($validatedData);
+        $medical_histories = MedicalHistory::update($validatedData);
 
-        return redirect()->route('medical_history', $medical_history)->with('success', 'Medical history updated correctly.');
+        return view('medical_histories', compact('medical_histories'))->with('success', 'Medical history updated correctly.');
     }
 
     // delete
     function delete_medical_history($id) {
         $medical_history = MedicalHistory::destroy($id);
-        return view('medical_history', ['medical_history' => $medical_history]);
+        return redirect('/medicalhistories')->with('success', 'Medical history deleted.');
     }
 }

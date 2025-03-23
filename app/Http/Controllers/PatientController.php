@@ -16,10 +16,10 @@ class PatientController extends Controller
     function store_patient(Request $request) {
 
         $validatedData = $request->validate([
-            'dni' => 'required|unique|string|max:8',
+            'dni' => 'required|string|max:8',
             'gender' => 'required|string',
             'name' => 'required|string|max:50',
-            'phone' => 'required|integer|max:9',
+            'phone' => 'required|digits:9',
             'address' => 'required|string|max:50',
             'cp' => 'required|string|max:5',
         ]
@@ -31,13 +31,13 @@ class PatientController extends Controller
 
         Patient::create($validatedData);
 
-        return view('patient');
+        return redirect('/')->with('success', 'Patient created.');
     }
 
     // edit
     public function edit_patient($id) {
-        $patient=Patient::findOrFail($id);
-        return view('edit_patient', ['patient' => $patient]);
+        $patients=Patient::findOrFail($id);
+        return view('edit_patient', compact('patients'));
     }
 
     // update
@@ -56,14 +56,14 @@ class PatientController extends Controller
             'phone.required' => 'Already exists this phone.',
         ]);
 
-        $patients = Patient::update($validatedData);
+        $patients->update($validatedData);
 
-        return view('patient', ['patients' => $patients])->with('success', 'Patient updated correctly.');
+        return view('patient', compact('patients'))->with('success', 'Patient updated correctly.');
     }
 
     // delete
     function delete_patient($id) {
-        $patient = Patient::destroy($id);
-        return view('patient', ['patient' => $patient]);
+        Patient::destroy($id);
+        return redirect('/')->with('success', 'Patient deleted.');
     }
 }

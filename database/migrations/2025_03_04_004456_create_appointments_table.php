@@ -25,15 +25,18 @@ return new class extends Migration
 
             $table->foreign('doctor_id')
             ->references('id')
-            ->on('doctors');
+            ->on('doctors')
+            ->onDelete('cascade');
 
             $table->foreign('nurse_id')
             ->references('id')
-            ->on('nurses');
+            ->on('nurses')
+            ->onDelete('cascade');
 
             $table->foreign('patient_id')
             ->references('id')
-            ->on('patients');
+            ->on('patients')
+            ->onDelete('cascade');
         });
     }
 

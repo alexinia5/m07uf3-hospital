@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\UpdateForm;
+namespace App\View\Components\CreateForm;
 
 use Closure;
 use Illuminate\Contracts\View\View;

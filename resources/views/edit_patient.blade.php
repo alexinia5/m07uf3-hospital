@@ -8,13 +8,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="p-0 m-0 bg-blue-50">
-    <div class="container p-9 w-full h-screen flex flex-row gap-8">
+    <div class="container p-9 w-full h-screen flex flex-row gap-8
+    max-sm:p-4 max-sm:flex-col max-sm:gap-5">
       <x-navbar.navbar></x-navbar.navbar>
       <main class="flex flex-col items-center gap-10 w-full">
         <div class="bg-white w-full max-w-lg border-2 border-zinc-200 rounded-xl p-4 flex flex-col gap-6 items-center">
           <h1 class="text-2xl font-semibold">Update patient</h1>
           @foreach ($patients as $item)
-            <x-forms.update-form :data="['ID', 'DNI', 'Name', 'Gender', 'Phone', 'Address', 'Zip Code']"
+            <x-forms.update-form :data="['DNI', 'Name', 'Gender', 'Phone', 'Address', 'Zip Code']"
             :route="'/patients/update/{{ $item->id }}'"/>
           @endforeach
         </div>

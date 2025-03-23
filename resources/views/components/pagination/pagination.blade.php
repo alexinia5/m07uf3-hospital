@@ -1,4 +1,4 @@
-<div class="flex justify-center space-x-2">
+{{-- <div class="flex justify-center space-x-2">
     <a href="#"
         class="ring ring-primary bg-primary/20 px-2 py-1 sm:px-4 sm:py-2 ml-1 mt-2 text-gray-600 border rounded-lg focus:outline-none">1
     </a>
@@ -23,4 +23,4 @@
                 clip-rule="evenodd"></path>
         </svg>
     </a>
-</div>
+</div> --}}

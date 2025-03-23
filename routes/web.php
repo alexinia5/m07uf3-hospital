@@ -9,12 +9,11 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\EmergencyController;
 use App\Http\Controllers\MedicalHistoryController;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\SpecialtyController;
 
 // Hospital Controller
-// main
-Route::get('/', [HospitalController::class, 'index']);
-// patients
-Route::get('/patients', [HospitalController::class, 'patients']);
+// main --> patients
+Route::get('/', [HospitalController::class, 'patients']);
 // medical history
 Route::get('/medicalhistories', [HospitalController::class, 'medicalhistories']);
 // doctors
@@ -71,6 +70,20 @@ Route::get('/doctors/edit/{id}', [DoctorController::class, 'edit_doctor']);
 Route::put('/doctors/update/{id}', [DoctorController::class, 'update_doctor']);
 // delete
 Route::delete('/doctors/delete/{id}', [DoctorController::class, 'delete_doctor']);
+
+
+
+// Specialty Controller
+// create
+Route::get('/specialties/create', [SpecialtyController::class, 'create_specialty']);
+// store
+Route::post('/specialties/store', [SpecialtyController::class, 'store_specialty']);
+// edit
+Route::get('/specialties/edit/{id}', [SpecialtyController::class, 'edit_specialty']);
+// update
+Route::put('/specialties/update/{id}', [SpecialtyController::class, 'update_specialty']);
+// delete
+Route::delete('/specialties/delete/{id}', [SpecialtyController::class, 'delete_specialty']);
 
 
 

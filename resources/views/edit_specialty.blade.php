@@ -13,8 +13,8 @@
       <x-navbar.navbar></x-navbar.navbar>
       <main class="flex flex-col items-center gap-10 w-full">
         <div class="bg-white w-full max-w-lg border-2 border-zinc-200 rounded-xl p-4 flex flex-col gap-6 items-center">
-          <h1 class="text-2xl font-semibold">Update doctor</h1>
-          <x-forms.update-form :data="['DNI', 'Name', 'Gender', 'Phone', 'Position']"/>
+          <h1 class="text-2xl font-semibold">Update specialty</h1>
+          <x-forms.update-form :route="'/specialties/update'" :data="['Name', 'Location Departament']"/>
         </div>
       </main>
     </div>

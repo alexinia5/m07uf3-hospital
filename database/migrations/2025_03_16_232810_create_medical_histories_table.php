@@ -20,7 +20,8 @@ return new class extends Migration
             $table->unsignedBigInteger('patient_id')->unique();
             $table->foreign('patient_id')
 			->references('id')
-			->on('patients');
+			->on('patients')
+            ->onDelete('cascade');
         });
     }
 

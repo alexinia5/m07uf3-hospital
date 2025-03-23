@@ -1,5 +1,5 @@
 <div class="flex flex-col w-full h-full">
-    <div class=" overflow-x-auto">
+    <div class="overflow-x-auto">
         <div class="overflow-hidden flex flex-col items-start gap-3 border border-x-gray-300 rounded-xl p-3">
             <h1 class="text-lg font-semibold"></h1>
             <table class="min-w-full rounded-xl">

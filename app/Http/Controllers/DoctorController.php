@@ -30,17 +30,17 @@ class DoctorController extends Controller
 
         Doctor::create($validatedData);
 
-        return redirect()->route('doctor')->with('success', 'Doctor created correctly.');
+        return redirect('/doctors')->with('success', 'Doctor created correctly.');
     }
 
     // edit
     public function edit_doctor($id) {
-        $doctor=Doctor::findOrFail($id);
-        return view('edit_doctor', ['doctor' => $doctor]);
+        $doctors=Doctor::findOrFail($id);
+        return view('edit_doctor', compact($doctors));
     }
 
     // update
-    public function update_doctor(Request $request, Doctor $doctor) {
+    public function update_doctor(Request $request, Doctor $doctors) {
         $validatedData = $request->validate([
             'dni' => 'required|unique|string|max:8',
             'gender' => 'required|string',
@@ -54,14 +54,14 @@ class DoctorController extends Controller
             'phone.required' => 'Already exists this phone.',
         ]);
 
-        $doctor = Doctor::update($validatedData);
+        $doctors->update($validatedData);
 
-        return redirect()->route('doctor', $doctor)->with('success', 'Doctor updated correctly.');
+        return view('doctor', compact('doctors'))->with('success', 'Doctor updated correctly.');
     }
 
     // delete
     function delete_doctor($id) {
-        $doctor = Doctor::destroy($id);
-        return view('doctor', ['doctor' => $doctor]);
+        Doctor::destroy($id);
+        return redirect('/doctors')->with('success', 'Doctor deleted.');
     }
 }

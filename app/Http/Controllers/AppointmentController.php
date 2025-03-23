@@ -23,7 +23,7 @@ class AppointmentController extends Controller
 
         Appointment::create($validatedData);
 
-        return view('appointment')->with('success', 'Appointment created correctly.');
+        return redirect('/appointments')->with('success', 'Patient created.');
     }
 
     // edit
@@ -33,7 +33,7 @@ class AppointmentController extends Controller
     }
 
     // update
-    public function update_appointment(Request $request, Appointment $appointment) {
+    public function update_appointment(Request $request, Appointment $appointments) {
         $validatedData = $request->validate([
             'date_hour' => 'required|date',
             'status' => 'required|string|max:15',
@@ -42,14 +42,14 @@ class AppointmentController extends Controller
             'observations' => 'string|max:20',
         ]);
 
-        $appointment = Appointment::update($validatedData);
+        $appointments->update($validatedData);
 
-        return view('appointment', ['appointments' =>$appointment])->with('success', 'Appointment updated correctly.');
+        return view('appointment', compact('appointments'))->with('success', 'Appointment updated correctly.');
     }
 
     // delete
     function delete_appointment($id) {
-        $appointment = Appointment::destroy($id);
-        return view('appointment', ['appointment' => $appointment]);
+        Appointment::destroy($id);
+        return redirect('/appointments')->with('success', 'Appointment deleted.');
     }
 }

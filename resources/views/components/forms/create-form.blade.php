@@ -2,7 +2,7 @@
 <form class="w-full max-w-lg flex flex-col items-center" action="{{ $route }}" method="post">
   @csrf
   @foreach ($data as $item)
-    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0 max-sm:mb-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">{{ $item }}</label>
         <input class="appearance-none p-1 block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded mb-3 leading-tight focus:outline-none focus:bg-white" name="{{ $item }}" type="text">
     </div>
