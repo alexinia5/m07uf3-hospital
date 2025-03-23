@@ -17,7 +17,6 @@ Les **taules** de la base de dades de l'hospital és el següent:
 
 ### Relacions
 - Doctors:
-    - ManyToMany: doctors - pacients **//QUITAR**
     - OneToOne: doctors - specialties
     - OneToMany: doctors - appointments
     - ManyToMany: doctors - emergencies
@@ -30,7 +29,6 @@ Les **taules** de la base de dades de l'hospital és el següent:
     - ManyToMany: nurses - emergencies
 
 - Patients:
-    - ManyToMany: doctors - pacients **//QUITAR**
     - OneToMany: patients - appointments
     - OneToOne: patients - emergencies
     - OneToOne: patients - medical histories
