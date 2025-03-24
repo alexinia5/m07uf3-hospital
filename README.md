@@ -29,7 +29,7 @@ Les **taules** de la base de dades de l'hospital és el següent:
     - ManyToMany: nurses - emergencies
 
 - Patients:
-    - OneToMany: patients - appointments
+K    - OneToMany: patients - appointments
     - OneToOne: patients - emergencies
     - OneToOne: patients - medical histories
     - OneToOne: patients - rooms
