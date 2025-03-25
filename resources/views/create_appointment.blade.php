@@ -11,6 +11,16 @@
     <div class="container p-9 w-full h-screen flex flex-row gap-8">
       <x-navbar.navbar></x-navbar.navbar>
       <main class="flex flex-col items-center gap-10 w-full">
+        @if ($errors->any())
+          <div style="color: red;">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+        @endif
+
         <div class="bg-white w-full max-w-lg border-2 border-zinc-200 rounded-xl p-4 flex flex-col gap-6 items-center">
           <h1 class="text-2xl font-semibold">Make an appointment</h1>
           <x-forms.create-form :route="'/appointments/store'" :data="['Date hour', 'Motive', 'Floor number', 'Observations', 'Doctor', 'Nurse', 'Patient']"/>

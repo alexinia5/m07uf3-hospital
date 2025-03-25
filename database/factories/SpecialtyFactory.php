@@ -20,11 +20,13 @@ class SpecialtyFactory extends Factory
 
     public function definition(): array
     {
-        $name = $this->faker->unique()->randomElement(['Cardiology', 'Dermatology', 'Endocrinology', 'Gastroenterology', 'Gynecology', 'Hematology', 'Infectious Diseases',
+        $name = $this->faker->unique()->randomElement(['Immunology', 'Dermatology', 'Endocrinology', 'Gastroenterology', 'Gynecology', 'Hematology', 'Infectious Diseases',
         'Internal Medicine', 'Neurology', 'Pulmonology', 'Pediatrics', 'Urology', 'Emergency Medicine', 'Family Medicine']);
-            
-        if ($name == 'Cardiology') {
-            $location_departament = 'Cardiology Department';
+        
+        $location_departament = '';
+
+        if ($name == 'Immunology') {
+            $location_departament = 'Immunology Department';
 
         } elseif ($name == 'Dermatology') {
             $location_departament = 'Dermatology Department';
@@ -65,7 +67,7 @@ class SpecialtyFactory extends Factory
 
         return [
             'name' => $name,
-            'location_departament' => $location_departament
+            'location_departament' => $location_departament,
         ];
     }
 }

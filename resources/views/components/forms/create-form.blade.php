@@ -1,6 +1,4 @@
-
-<form class="w-full max-w-lg flex flex-col items-center" action="{{ $route }}" method="post">
-  @csrf
+<form class="w-full max-w-lg flex flex-col items-center" action="{{ $route }}" method="post">  @csrf
   @foreach ($data as $item)
     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0 max-sm:mb-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">{{ $item }}</label>
