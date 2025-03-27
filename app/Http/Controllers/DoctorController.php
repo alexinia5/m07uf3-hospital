@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Doctor;
+use Illuminate\Support\Facades\Validator;
+
 
 class DoctorController extends Controller
 {
@@ -13,23 +15,23 @@ class DoctorController extends Controller
 
     // store
     function store_doctor(Request $request) {
-
-        $validatedData = $request->validate([
-            'dni' => 'required|unique|string|max:8',
+        $validator = Validator::make($request->all(), [
+            'dni' => 'required|string:8',
             'gender' => 'required|string',
             'name' => 'required|string|max:50',
-            'phone' => 'required|integer|max:9',
+            'phone' => 'required|digits:9',
             'position' => 'required|string',
-        ],
-        [
-            'dni.required' => 'Already exists this DNI.',
-            'name.required' => 'Already exists this name.',
-            'phone.required' => 'Already exists this phone.',
-
+            'specialty_id' => 'required|exists:specialties,id',
         ]);
 
-        Doctor::create($validatedData);
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }
 
+        Doctor::create($validator->validated());
+        
         return redirect('/doctors')->with('success', 'Doctor created correctly.');
     }
 

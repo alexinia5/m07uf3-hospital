@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Emergency;
+use Illuminate\Support\Facades\Validator;
+
 
 class EmergencyController extends Controller
 {
@@ -13,14 +15,23 @@ class EmergencyController extends Controller
 
     // store
     function store_emergency(Request $request) {
-        $validatedData = $request->validate([
+        $validator = Validator::make($request->all(), [
             'date' => 'required|date',
             'level' => 'required|string|max:15',
             'diagnosis' => 'required|string|max:50',
             'floor_num' => 'required|string|max:20',
+            'doctor_id' => 'required|exists:doctors,id',
+            'nurse_id' => 'required|exists:nurses,id',
+            'patient_id' => 'required|exists:patients,id',
         ]);
 
-        Emergency::create($validatedData);
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+        Emergency::create($validator->validated());
 
         return redirect('emergencies')->with('success', 'Emergency created correctly.');
     }

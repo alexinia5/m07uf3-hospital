@@ -15,6 +15,7 @@ class Room extends Model
         'availability',
         'date_admission',
         'floor_num',
+        'patient_id',
     ];
 
     public function patient()

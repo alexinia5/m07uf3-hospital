@@ -17,11 +17,12 @@ class Doctor extends Model
         'name',
         'phone',
         'position',
+        'specialty_id',
     ];
 
     public function specialties()
 	{
-		return $this->hasOne(Specialty::class);
+		return $this->BelongTo(Specialty::class);
 	}
 
     public function appointments()

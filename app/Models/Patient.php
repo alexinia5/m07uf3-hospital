@@ -18,6 +18,7 @@ class Patient extends Model
         'phone',
         'address',
         'cp',
+        'patient_id',
     ];
 
     public function appointments()

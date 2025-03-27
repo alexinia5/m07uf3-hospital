@@ -17,6 +17,9 @@ class Emergency extends Model
         'level',
         'diagnosis',
         'floor_num',
+        'doctor_id',
+        'nurse_id',
+        'patient_id',
     ];
 
     public function doctors()

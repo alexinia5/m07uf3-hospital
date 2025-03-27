@@ -16,11 +16,8 @@ class PatientController extends Controller
 
     // store
     function store_patient(Request $request) {
-
-        // $name = $request-> old('name');
-
         $validator = Validator::make($request->all(), [
-            'dni' => 'required|string|max:8',
+            'dni' => 'required|string:8',
             'gender' => 'required|string',
             'name' => 'required|string|max:50',
             'phone' => 'required|digits:9',

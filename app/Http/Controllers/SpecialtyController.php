@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Specialty;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class SpecialtyController extends Controller
 {
@@ -14,12 +16,18 @@ class SpecialtyController extends Controller
 
     // store
     function store_specialty(Request $request) {
-        $validatedData = $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:50',
             'location_departament' => 'required|string|max:50',
         ]);
 
-        Specialty::create($validatedData);
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+        Specialty::create($validator->validated());
 
         return redirect('/specialties')->with('success', 'Specialty created correctly.');
        

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class RoomController extends Controller
 {
@@ -14,13 +16,20 @@ class RoomController extends Controller
 
     // store
     function store_room(Request $request) {
-        $validatedData = $request->validate([
+        $validator = Validator::make($request->all(), [
             'availability' => 'required|string|max:2',
             'date_admission' => 'required|date',
-            'floor_number' => 'required|string|max:20',
+            'floor_num' => 'required|string|max:20',
+            'patient_id' => 'required|exists:patients,id',
         ]);
 
-        Room::create($validatedData);
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+        Room::create($validator->validated());
 
         return redirect('/rooms')->with('success', 'Room created correctly.');
        

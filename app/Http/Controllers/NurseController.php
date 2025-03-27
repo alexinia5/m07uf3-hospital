@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Nurse;
+use Illuminate\Support\Facades\Validator;
 
 class NurseController extends Controller
 {
@@ -13,21 +14,20 @@ class NurseController extends Controller
 
     // store
     function store_nurse(Request $request) {
-        $validatedData = $request->validate([
-            'dni' => 'required|unique|string|max:8',
+        $validator = Validator::make($request->all(), [
+            'dni' => 'required|string:8',
             'gender' => 'required|string',
             'name' => 'required|string|max:50',
-            'phone' => 'required|integer|max:9',
-            'position' => 'required|string',
-        ],
-        [
-            'dni.required' => 'Already exists this DNI.',
-            'name.required' => 'Already exists this name.',
-            'phone.required' => 'Already exists this phone.',
-
+            'phone' => 'required|digits:9',
         ]);
 
-        Nurse::create($validatedData);
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+        Nurse::create($validator->validated());
 
         return redirect('/nurses')->with('success', 'Nurse created correctly.');
     }
