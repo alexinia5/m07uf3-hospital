@@ -36,19 +36,27 @@ class SpecialtyController extends Controller
     // edit
     public function edit_specialty($id) {
         $specialties=Specialty::findOrFail($id);
-        return view('edit_specialty', compact($specialties));
+        return view('edit_specialty', ['specialties' => $specialties]);
     }
 
     // update
-    public function update_specialty(Request $request, Specialty $specialties) {
-        $validatedData = $request->validate([
+    public function update_specialty(Request $request, $id) {
+        $specialties = Specialty::findOrFail($id);
+
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:50',
             'location_departament' => 'required|string|max:50',
         ]);
 
-        $specialties->update($validatedData);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
-        return view('specialty', compact('specialties'))->with('success', 'Specialty updated correctly.');
+        $specialties->update($validator->validated());
+
+        return view('specialty', ['specialties' => $specialties]);
     }
 
     // delete

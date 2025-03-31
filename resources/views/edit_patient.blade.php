@@ -29,10 +29,8 @@
         @endif
         <div class="bg-white w-full max-w-lg border-2 border-zinc-200 rounded-xl p-4 flex flex-col gap-6 items-center">
           <h1 class="text-2xl font-semibold">Update patient</h1>
-          @foreach ($patients as $item)
-            <x-forms.update-form :data="['DNI', 'Name', 'Gender', 'Phone', 'Address', 'Zip Code']"
-            :route="'/patients/update/{{ $item->id }}'"/>
-          @endforeach
+          <x-forms.update-form :route="'/patients/update/' . $patients->id"
+            :data="['DNI', 'Gender', 'Name', 'Phone', 'Address', 'CP']"/>
         </div>
       </main>
     </div>

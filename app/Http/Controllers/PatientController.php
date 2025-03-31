@@ -43,9 +43,10 @@ class PatientController extends Controller
     }
 
     // update
-    public function update_patient(Request $request, Patient $patients) {
-        
-        $validator = Validator::update($request->all(), [
+    public function update_patient(Request $request, $id) {
+        $patients = Patient::findOrFail($id);
+
+        $validator = Validator::make($request->all(), [
             'dni' => 'required|string|max:8',
             'gender' => 'required|string',
             'name' => 'required|string|max:50',
@@ -55,14 +56,13 @@ class PatientController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('/')
-            ->withErrors($validator)
-            ->withInput();
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
         }
 
-        $patients->update($validator);
-
-        return view('patient', compact('patients'))->with('success', 'Patient updated correctly.');
+        $patients->update($validator->validated());
+        return view('patient', ['patients' => $patients]);
     }
 
     // delete

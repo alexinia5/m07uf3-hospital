@@ -17,6 +17,9 @@ class Appointment extends Model
         'motive',
         'floor_num',
         'observations',
+        'doctor_id',
+        'nurse_id',
+        'patient_id',
     ];
 
     public function doctors()

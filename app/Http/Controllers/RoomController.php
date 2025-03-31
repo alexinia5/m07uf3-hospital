@@ -17,7 +17,7 @@ class RoomController extends Controller
     // store
     function store_room(Request $request) {
         $validator = Validator::make($request->all(), [
-            'availability' => 'required|string|max:2',
+            'availability' => 'required|string|max:3',
             'date_admission' => 'required|date',
             'floor_num' => 'required|string|max:20',
             'patient_id' => 'required|exists:patients,id',
@@ -38,20 +38,29 @@ class RoomController extends Controller
     // edit
     public function edit_room($id) {
         $rooms=Room::findOrFail($id);
-        return view('edit_room', compact($rooms));
+        return view('edit_room', ['rooms' => $rooms]);
     }
 
     // update
-    public function update_room(Request $request, Room $rooms) {
-        $validatedData = $request->validate([
-            'availability' => 'required|string|max:2',
+    public function update_room(Request $request, $id) {
+        $rooms = Room::findOrFail($id);
+
+        $validator = Validator::make($request->all(), [
+            'availability' => 'required|string|max:3',
             'date_admission' => 'required|date',
-            'floor_number' => 'required|string|max:20',
+            'floor_num' => 'required|string|max:20',
+            'patient_id' => 'required|exists:patients,id',
         ]);
 
-        $rooms->update($validatedData);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+    
+        $rooms->update($validator->validated());
 
-        return view('room', compact('rooms'))->with('success', 'Room updated correctly.');
+        return view('room', ['rooms' => $rooms] );
     }
 
     // delete

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AppointmentController extends Controller
 {
@@ -13,15 +14,23 @@ class AppointmentController extends Controller
 
     // store
     function store_appointment(Request $request) {
-        $validatedData = $request->validate([
+        $validator = Validator::make($request->all(), [
             'date_hour' => 'required|date',
-            'status' => 'required|string|max:15',
             'motive' => 'required|string|max:50',
             'floor_num' => 'required|string|max:20',
             'observations' => 'string|max:20',
+            'doctor_id' => 'required|exists:doctors,id',
+            'nurse_id' => 'required|exists:nurses,id',
+            'patient_id' => 'required|exists:patients,id',
         ]);
 
-        Appointment::create($validatedData);
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+        Appointment::create($validator->validated());
 
         return redirect('/appointments')->with('success', 'Patient created.');
     }
@@ -33,18 +42,28 @@ class AppointmentController extends Controller
     }
 
     // update
-    public function update_appointment(Request $request, Appointment $appointments) {
-        $validatedData = $request->validate([
+    public function update_appointment(Request $request, $id) {
+        $appointments = Appointment::findOrFail($id);
+        
+        $validator = Validator::make($request->all(), [
             'date_hour' => 'required|date',
-            'status' => 'required|string|max:15',
             'motive' => 'required|string|max:50',
             'floor_num' => 'required|string|max:20',
             'observations' => 'string|max:20',
+            'doctor_id' => 'required|exists:doctors,id',
+            'nurse_id' => 'required|exists:nurses,id',
+            'patient_id' => 'required|exists:patients,id',
         ]);
 
-        $appointments->update($validatedData);
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }
 
-        return view('appointment', compact('appointments'))->with('success', 'Appointment updated correctly.');
+        $appointments->update($validator);
+
+        return view('appointment', ['appointments' => $appointments]);
     }
 
     // delete

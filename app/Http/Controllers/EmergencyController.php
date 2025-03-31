@@ -44,21 +44,32 @@ class EmergencyController extends Controller
 
     public function edit($id) {
         $emergencies=Emergency::findOrFail($id);
-        return view('edit_emergency', compact($emergencies));
+        return view('edit_emergency', ['emergencies' => $emergencies]);
     }
 
     // update
-    public function update_emergency(Request $request, Emergency $emergencies) {
-        $validatedData = $request->validate([
+    public function update_emergency(Request $request, $id) {
+        $emergencies = Emergency::findOrFail($id);
+
+        $validator = Validator::make($request->all(), [
             'date' => 'required|date',
             'level' => 'required|string|max:15',
             'diagnosis' => 'required|string|max:50',
             'floor_num' => 'required|string|max:20',
+            'doctor_id' => 'required|exists:doctors,id',
+            'nurse_id' => 'required|exists:nurses,id',
+            'patient_id' => 'required|exists:patients,id',
         ]);
 
-        $emergencies->update($validatedData);
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }
 
-        return view('emergency', compact('emergencies'))->with('success', 'Emergency updated correctly.');
+        $emergencies->update($validator->validated());
+
+        return view('emergency', ['emergencies' => $emergencies]);
     }
 
     // delete

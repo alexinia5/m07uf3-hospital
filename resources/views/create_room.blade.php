@@ -29,7 +29,7 @@
         @endif
         <div class="bg-white w-full max-w-lg border-2 border-zinc-200 rounded-xl p-4 flex flex-col gap-6 items-center">
           <h1 class="text-2xl font-semibold">Make a room</h1>
-          <x-forms.create-form :route="'/rooms/store'" :data="['Availability', 'Date Admission', 'Floor number', 'Patient']"/>
+          <x-forms.create-form :route="'/rooms/store'" :data="['Availability', 'Date Admission', 'Floor_num', 'Patient_ID']"/>
         </div>
       </main>
     </div>

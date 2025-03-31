@@ -38,27 +38,32 @@ class DoctorController extends Controller
     // edit
     public function edit_doctor($id) {
         $doctors=Doctor::findOrFail($id);
-        return view('edit_doctor', compact($doctors));
+        return view('edit_doctor', ['doctor' => $doctors]);
     }
 
     // update
-    public function update_doctor(Request $request, Doctor $doctors) {
-        $validatedData = $request->validate([
-            'dni' => 'required|unique|string|max:8',
+    public function update_doctor(Request $request, $id) {
+        $doctors = Doctor::findOrFail($id);
+        // dd($doctor);
+    
+        $validator = Validator::make($request->all(), [
+            'dni' => 'required|string|size:8',
             'gender' => 'required|string',
             'name' => 'required|string|max:50',
-            'phone' => 'required|integer|max:9',
+            'phone' => 'required|digits:9',
             'position' => 'required|string',
-        ],
-        [
-            'dni.required' => 'Already exists this DNI.',
-            'name.required' => 'Already exists this name.',
-            'phone.required' => 'Already exists this phone.',
+            'specialty_id' => 'required|exists:specialties,id',
         ]);
-
-        $doctors->update($validatedData);
-
-        return view('doctor', compact('doctors'))->with('success', 'Doctor updated correctly.');
+    
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+    
+        $doctors->update($validator->validated());
+        
+        return view('doctor', ['doctors' => $doctors]);
     }
 
     // delete

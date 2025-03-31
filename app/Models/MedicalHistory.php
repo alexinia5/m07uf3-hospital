@@ -15,6 +15,7 @@ class MedicalHistory extends Model
         'date',
         'diagnosis',
         'treatment',
+        'patient_id',
     ];
 
     public function Pacient()

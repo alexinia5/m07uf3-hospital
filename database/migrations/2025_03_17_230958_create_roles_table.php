@@ -12,19 +12,19 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    // public function up(): void
-    // {
-    //     $role = Role::create(['name' => 'patient']);
+    public function up(): void
+    {
+        $role = Role::create(['name' => 'patient']);
 
-    //     $user = User::find(1);
-    //     $user->assignRole($role);
-    // }
+        $user = User::find(1);
+        $user->assignRole($role);
+    }
 
     /**
      * Reverse the migrations.
      */
-    // public function down(): void
-    // {
-    //     Schema::dropIfExists('roles');
-    // }
+    public function down(): void
+    {
+        Schema::dropIfExists('roles');
+    }
 };

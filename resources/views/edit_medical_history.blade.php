@@ -29,7 +29,7 @@
         @endif
         <div class="bg-white w-full max-w-lg border-2 border-zinc-200 rounded-xl p-4 flex flex-col gap-6 items-center">
           <h1 class="text-2xl font-semibold">Update medical history</h1>
-          <x-forms.update-form :data="['Date', 'Diagnosis', 'Treatment', 'Patient']"/>
+          <x-forms.update-form :route="'/medicalhistories/update' . $medicalhistories->id" :data="['Date', 'Diagnosis', 'Treatment', 'Patient_id']"/>
         </div>
       </main>
     </div>

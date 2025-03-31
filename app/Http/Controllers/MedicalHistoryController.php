@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MedicalHistory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class MedicalHistoryController extends Controller
 {
@@ -14,34 +15,50 @@ class MedicalHistoryController extends Controller
 
     // store
     function store_medical_history(Request $request) {  
-        $validatedData = $request->validate([
+        $validator = Validator::make($request->all(), [
             'date' => 'required|date',
             'diagnosis' => 'required|string|max:50',
             'treatment' => 'required|string|max:50',
+            'patient_id' => 'required|exists:patients,id',
         ]);
 
-        MedicalHistory::create($validatedData);
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+        MedicalHistory::create($validator->validated());
 
         return redirect('/medicalhistories')->with('success', 'Medical history created correctly.');
     }
 
     // edit
     public function edit_medical_history($id) {
-        $medical_histories=MedicalHistory::findOrFail($id);
-        return view('edit_medical_history', compact('medical_histories'));
+        $medicalhistories=MedicalHistory::findOrFail($id);
+        return view('edit_medical_history', ['medicalhistories' => $medicalhistories]);
     }
 
     // update
-    public function update_medical_history(Request $request, MedicalHistory $medical_histories) {
-        $validatedData = $request->validate([
+    public function update_medical_history(Request $request, $id) {
+        $medicalhistories = MedicalHistory::findOrFail($id);
+
+        $validator = Validator::make($request->all(), [
             'date' => 'required|date',
             'diagnosis' => 'required|string|max:50',
             'treatment' => 'required|string|max:50',
+            'patient_id' => 'required|exists:patients,id',
         ]);
 
-        $medical_histories = MedicalHistory::update($validatedData);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
-        return view('medical_histories', compact('medical_histories'))->with('success', 'Medical history updated correctly.');
+        $medicalhistories->update($validator->validated());
+
+        return view('medical_histories', ['medicalhistories' => $medicalhistories]);
     }
 
     // delete

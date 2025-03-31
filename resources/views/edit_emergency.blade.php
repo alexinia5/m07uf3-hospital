@@ -29,7 +29,7 @@
         @endif
         <div class="bg-white w-full max-w-lg border-2 border-zinc-200 rounded-xl p-4 flex flex-col gap-6 items-center">
           <h1 class="text-2xl font-semibold">Update emergency</h1>
-          <x-forms.update-form :data="['Date', 'Level', 'Diagnosis', 'Floor Number', 'Doctor', 'Nurse', 'Patient']"/>
+          <x-forms.update-form :route="'/doctors/update/' . $emergencies->id" :data="['Date', 'Level', 'Diagnosis', 'Floor_Num', 'Doctor_ID', 'Nurse_ID', 'Patient_ID']"/>
         </div>
       </main>
     </div>
