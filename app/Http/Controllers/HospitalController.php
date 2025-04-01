@@ -34,7 +34,7 @@ class HospitalController extends Controller
 
     // appointments section
     function appointments() {
-        $appointments = Appointment::orderby('id', 'desc')->paginate(7);
+        $appointments = Appointment::orderby('id', 'desc')->paginate(6);
         return view('appointment', compact('appointments'));
     }
 
@@ -58,7 +58,7 @@ class HospitalController extends Controller
 
     // rooms section
     function rooms() {
-        $rooms = Room::orderby('id', 'desc')->paginate(7);
+        $rooms = Room::orderby('id', 'desc')->paginate(8);
         return view('room', compact('rooms'));
     }
 }

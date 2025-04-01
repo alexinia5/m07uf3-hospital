@@ -11,7 +11,7 @@
     <div class="container p-9 w-full h-screen flex flex-row gap-8
     max-sm:p-4 max-sm:flex-col max-sm:gap-5">
       <x-navbar.navbar></x-navbar.navbar>
-      <main class="flex flex-col items-center gap-10 w-full">
+      <main class="w-full">
         @if ($errors->any())
           <div class="bg-red-100 px-6 py-4 mx-2 my-4 rounded-md text-lg flex flex-col items-start mx-auto max-w-lg absolute z-10 left-52">
             <svg viewBox="0 0 24 24" class="text-red-600 w-5 h-5 sm:w-5 sm:h-5">
@@ -27,11 +27,8 @@
             </ul>
           </div>
         @endif
-        <div class="bg-white w-full max-w-lg border-2 border-zinc-200 rounded-xl p-4 flex flex-col gap-6 items-center">
-          <h1 class="text-2xl font-semibold">Update patient</h1>
-          <x-forms.update-form :route="'/patients/update/' . $patients->id"
-            :data="['DNI', 'Gender', 'Name', 'Phone', 'Address', 'CP']"/>
-        </div>
+        <x-forms.update-form :route="'/patients/update/' . $patients->id"
+        :data="['DNI', 'Gender', 'Name', 'Phone', 'Address', 'CP']"/>
       </main>
     </div>
 </body>

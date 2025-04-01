@@ -1,8 +1,8 @@
-<div class="flex flex-col w-full h-full">
+<div class="flex flex-col w-full h-full rounded-xl bg-white">
     <div class="overflow-x-auto">
-        <div class="overflow-hidden flex flex-col items-start gap-3 border border-x-gray-300 rounded-xl p-3">
+        <div class="overflow-hidden flex flex-col items-start gap-3 border border-x-gray-300 rounded-xl p-2">
             <h1 class="text-lg font-semibold"></h1>
-            <table class="min-w-full rounded-xl">
+            <table class="min-w-full rounded-xl bg-white">
                 <thead>
                     <tr class="bg-gray-50 h-3">
                         @foreach ($dataColumn as $column)

@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
-
+use App\Models\Doctor;
+use App\Models\Nurse;
+use App\Models\Patient;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -16,79 +18,44 @@ class RolesPermissionsSeeder extends Seeder
      */
     public function run(): void
     {
-        $permissions = [
-            'getionar pacientes',
-            'getionar historial médico',
-            'getionar doctores',
-            'getionar especialidades',
-            'getionar enfermeros',
-            'getionar habitaciones',
-            'getionar citas',
-            'emergencias',
-        ];
+        // definir roles
+        $adminRole = Role::create(['name' => 'admin']);
+        $editorRole = Role::create(['name' => 'editor']);
+        $readerRole = Role::create(['name' => 'reader']);
+
+        // crear permisos
+        $patientManagementPermission = Permission::create(['name' => 'management patients']);
+        $doctorManagementPermission = Permission::create(['name' => 'management doctors']);
+        $nursesManagementPermission = Permission::create(['name' => 'management nurses']);
+        $medicalHistoryManagementPermission = Permission::create(['name' => 'management medical histories']);
+        $specialtyManagementPermission = Permission::create(['name' => 'management specialties']);
+        $roomManagementPermission = Permission::create(['name' => 'management room']);
+        $appointmentManagementPermission = Permission::create(['name' => 'management appointment']);
+        $emergencyManagementPermission = Permission::create(['name' => 'management emergency']);
+
+        $viewMedicalHistoryPermission = Permission::create(['name' => 'view medical histories']);
+        $viewRoomPermission = Permission::create(['name' => 'view room']);
+        $viewAppointmentPermission = Permission::create(['name' => 'view appointment']);
+        $viewEmergencyPermission = Permission::create(['name' => 'view emergency']);
+
+
+        // asignar permisos
+        $adminRole->givePermissionTo([$patientManagementPermission, $doctorManagementPermission,
+        $nursesManagementPermission,  $medicalHistoryManagementPermission, $specialtyManagementPermission,
+        $roomManagementPermission, $appointmentManagementPermission, $emergencyManagementPermission]);
+
+        $editorRole->givePermissionTo([$patientManagementPermission, $medicalHistoryManagementPermission, $roomManagementPermission]);
+
+        $readerRole->givePermissionTo([$viewMedicalHistoryPermission, $viewRoomPermission, $viewAppointmentPermission, $viewEmergencyPermission]);
+    
+        // asignar roles
+        $user = Doctor::find(1);
+        $user->assignRole($adminRole);
+
+        $user1 = Nurse::find(1);
+        $user1->assignRole($editorRole);
+
+        $user2 = Patient::find(1);
+        $user2->assignRole($readerRole);
     }
 }
-
-// -------------------------------------------------------------------------------------------
-
-class RolesAndPermissionsSeeder extends Seeder
-{
-    public function run()
-    {
-        // Limpiar caché de permisos para evitar errores
-        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
-
-        // Definir permisos
-        $permissions = [
-            'gestionar pacientes',    // Médico puede ver y modificar cualquier paciente
-            'ver pacientes',          // Enfermero y Médico pueden ver pacientes
-            'actualizar pacientes',   // Enfermero y Médico pueden actualizar datos
-            'ver su historial',       // Paciente solo puede ver su propio historial
-        ];
-
-        // Crear permisos en la base de datos
-        foreach ($permissions as $permission) {
-            Permission::firstOrCreate(['name' => $permission]);
-        }
-
-        // Crear roles y asignar permisos
-        $medico = Role::firstOrCreate(['name' => 'medico']);  // Admin del sistema
-        $medico->givePermissionTo($permissions); // Tiene todos los permisos
-
-        $enfermero = Role::firstOrCreate(['name' => 'enfermero']); // Editor del sistema
-        $enfermero->givePermissionTo(['ver pacientes', 'actualizar pacientes']); // No puede gestionar pacientes
-
-        $paciente = Role::firstOrCreate(['name' => 'paciente']); // Usuario normal
-        $paciente->givePermissionTo(['ver su historial']); // Solo puede ver su información
-
-        // Asignar roles a usuarios de ejemplo (si existen en la BD)
-        $user1 = User::find(1); // Suponiendo que el usuario con ID 1 es un médico
-        if ($user1) {
-            $user1->assignRole('medico');
-        }
-
-        $user2 = User::find(2); // Suponiendo que el usuario con ID 2 es un enfermero
-        if ($user2) {
-            $user2->assignRole('enfermero');
-        }
-
-        $user3 = User::find(3); // Suponiendo que el usuario con ID 3 es un paciente
-        if ($user3) {
-            $user3->assignRole('paciente');
-        }
-    }
-}
-
-// Ver todos los roles
-Role::all();
-
-// Ver todos los permisos
-Permission::all();
-
-// Ver si el usuario con ID 1 es médico
-$user = User::find(1);
-$user->hasRole('medico'); // true o false
-
-// Ver los permisos del rol "enfermero"
-$enfermero = Role::findByName('enfermero');
-$enfermero->permissions;
