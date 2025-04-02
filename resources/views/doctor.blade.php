@@ -18,8 +18,9 @@
                     <a href="/doctors/create" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full">Create</a>
                 </div>
             </div>
-            <div class="bg-white p-3 h-72 inline-flex gap-5 rounded-xl" style="background-image: url(); background-size: contain; background-repeat: no-repeat; background-position-x: right;">
+            <div class="bg-white p-3 h-72 inline-flex gap-5 rounded-xl" style="background-image: url(https://salud.edomex.gob.mx/cmalmateos/imagenes/e_investigacion/ensenanza_enf.png); background-size: contain; background-repeat: no-repeat; background-position-x: right;">
                 <h1 class="font-semibold text-blue-950 text-xl">Doctors Management</h1>
+                <p>Effortlessly manage doctors by keeping track of their specialties, schedules, and availability. Update profiles, organize shifts, and ensure smooth coordination within the healthcare team.</p>
             </div>
             <div class="table-pagination w-full flex flex-col items-start gap-6">
                 <x-table.table :dataRow="$doctors" :dataColumn="['ID', 'DNI', 'Name', 'Gender', 'Phone', 'Position', 'Specialty', 'Actions']"

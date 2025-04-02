@@ -20,6 +20,7 @@
                 </div>
                 <div class="bg-white p-3 h-72 inline-flex gap-5 rounded-xl" style="background-image: url(); background-size: contain; background-repeat: no-repeat; background-position-x: right;">
                     <h1 class="font-semibold text-blue-950 text-xl">Nurses Management</h1>
+                    <p>Streamline nurse management by overseeing their roles, work schedules, and availability. Keep profiles up to date, arrange shifts, and ensure seamless teamwork in the healthcare facility.</p>
                 </div>
                 <div class="table-pagination w-full h-full flex flex-col items-start gap-6">
                     <x-table.table :dataRow="$nurses" :dataColumn="['ID', 'DNI', 'Name', 'Gender', 'Phone', 'Actions']"
