@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Emergency;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\DB;
 
 class EmergencyController extends Controller
 {
@@ -34,12 +34,6 @@ class EmergencyController extends Controller
         Emergency::create($validator->validated());
 
         return redirect('emergencies')->with('success', 'Emergency created correctly.');
-    }
-
-    // read
-    function read_emergency() {
-        $emergency = Emergency::distinct()->get();
-        return view('emergency', ['emergency' => $emergency]);
     }
 
     public function edit($id) {
@@ -76,5 +70,37 @@ class EmergencyController extends Controller
     function delete_emergency($id) {
         Emergency::destroy($id);
         return redirect('/emergencies')->with('success', 'Emergency deleted correctly.');
+    }
+
+    // count sever cases
+    public function count_severs() {
+        $sql = "SELECT count(*) FROM emergencies WHERE level = 'Sever'";
+        $sever = DB::select($sql);
+        $total_sever = $sever[0];
+        return view('emergency', ['total_sever' => $total_sever]);
+    }
+
+    // count moderates cases
+    public function count_moderates() {
+        $sql = "SELECT count(*) FROM emergencies WHERE level = 'Moderate'";
+        $moderate = DB::select($sql);
+        $total_moderate = $moderate;
+        return view('emergency', ['total_moderate' => $total_moderate]);
+    }
+
+    // count milds cases
+    public function count_milds() {
+        $sql = "SELECT count(*) FROM emergencies WHERE level = 'Mild'";
+        $mild = DB::select($sql);
+        $total_mild = $mild;
+        return view('emergency', ['total_mild' => $total_mild]);
+    }
+
+    // count lows cases
+    public function count_lows() {
+        $sql = "SELECT count(*) FROM emergencies WHERE level = 'Low'";
+        $low = DB::select($sql);
+        $total_low = $low;
+        return view('emergency', ['total_low' => $total_low]);
     }
 }

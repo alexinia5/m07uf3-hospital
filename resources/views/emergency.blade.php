@@ -14,25 +14,24 @@
     </div>
     <div class="flex flex-row gap-6">
         <div class="table-pagination w-full flex flex-col items-start gap-6">
-            <x-table.table :dataRow="$emergencies" :dataColumn="['ID', 'Date', 'Level', 'Diagnosis', 'Floor Number', 'Doctor', 'Nurse', 'Patient', 'Actions']"
-            :table="'emergencies'"/>
+            <x-table.emergency-data :dataRow="$emergencies"/>
         </div>
         <div class="flex flex-col gap-6">
             <div class="bg-red-200 border border-neutral-300 p-3 w-28 rounded-xl">
                 <h3 class="text-lg text-red-700">Sever</h3>
-                <h1 class="font-semibold text-3xl text-red-600">3</h1>
+                {{-- <h1 class="font-semibold text-3xl text-red-600">{{ $total_sever }}</h1> --}}
             </div>
             <div class="bg-orange-200 border border-neutral-300 p-3 w-28 rounded-xl">
                 <h3 class="text-lg text-orange-800">Moderate</h3>
-                <h1 class="font-semibold text-3xl text-orange-600">2</h1>
+                {{-- <h1 class="font-semibold text-3xl text-orange-600">{{ $total_moderate }}</h1> --}}
             </div>
             <div class="bg-yellow-100 border border-neutral-300 p-3 w-28 rounded-xl">
                 <h3 class="text-lg text-yellow-600">Mild</h3>
-                <h1 class="font-semibold text-3xl text-yellow-400">1</h1>
+                {{-- <h1 class="font-semibold text-3xl text-yellow-400">{{ $total_mild }}</h1> --}}
             </div>
             <div class="bg-green-100 border border-neutral-300 p-3 w-28 rounded-xl">
                 <h3 class="text-lg text-green-700">Low</h3>
-                <h1 class="font-semibold text-3xl text-green-400">2</h1>
+                {{-- <h1 class="font-semibold text-3xl text-green-400">{{ $total_low }}</h1> --}}
             </div>
         </div>
     </div>

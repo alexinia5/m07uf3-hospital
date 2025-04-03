@@ -40,7 +40,7 @@ class HospitalController extends Controller
 
     // emergencies section
     function emergencies() {
-        $emergencies = Emergency::orderby('id', 'desc')->paginate(7);
+        $emergencies = Emergency::orderby('level', 'desc')->paginate(7);
         return view('emergency', compact('emergencies'));
     }
 
