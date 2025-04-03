@@ -16,19 +16,19 @@ class HospitalController extends Controller
     // hospital dashboard controller
     // doctors section
     function doctors() {
-        $doctors = Doctor::orderby('id', 'desc')->paginate(7);
+        $doctors = Doctor::orderby('id', 'desc')->paginate(5);
         return view('doctor', compact('doctors'));
     }
 
     // nurses section
     function nurses() {
-        $nurses = Nurse::orderby('id', 'desc')->paginate(7);
+        $nurses = Nurse::orderby('id', 'desc')->paginate(5);
         return view('nurse', compact('nurses'));
     }
 
     // patients section
     function patients() {
-        $patients = Patient::orderby('id', 'desc')->paginate(7);
+        $patients = Patient::orderby('id', 'desc')->paginate(5);
         return view('patient', compact('patients'));
     }
 
