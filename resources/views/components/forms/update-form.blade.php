@@ -1,5 +1,5 @@
 <div class="relative h-full flex items-center justify-center bg-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 bg-no-repeat bg-cover rounded-3xl"
-style="background-image: url(https://a-static.besthdwallpaper.com/iphone-14-abstract-ios-blue-wallpaper-2560x1600-104268_7.jpg);">
+style="background-image: url(https://t4.ftcdn.net/jpg/04/24/30/93/360_F_424309320_UkOxg2z3sq7yXwGnWCO6xBXkRI4byhnI.jpg);">
     <div class="absolute bg-black opacity-20 inset-0 z-0 rounded-3xl"></div>
     <div class="max-w-md w-full space-y-8 p-10 bg-white rounded-xl shadow-lg z-10">
         <div class="grid  gap-8 grid-cols-1">

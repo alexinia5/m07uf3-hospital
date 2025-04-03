@@ -42,19 +42,41 @@
             </nav>
         </header>
         <main class="w-full">
+            @if (session('success'))
+                <div class="flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 absolute z-20">
+                    <div class="flex items-center justify-center w-12 bg-emerald-500">
+                        <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z" />
+                        </svg>
+                    </div>
+                
+                    <div class="px-4 py-2 -mx-3">
+                        <div class="mx-3">
+                            <span class="font-semibold text-emerald-500 dark:text-emerald-400">Success!</span>
+                            <p class="text-sm text-gray-600 dark:text-gray-200">{{ session('success') }}</p>
+                        </div>
+                    </div>
+                </div>
+                {{ session()->forget('success') }}
+            @endif
             @if ($errors->any())
-                <div class="bg-red-100 px-6 py-4 mx-2 my-4 rounded-md text-lg flex flex-col items-start mx-auto max-w-lg absolute z-10 left-52">
-                    <svg viewBox="0 0 24 24" class="text-red-600 w-5 h-5 sm:w-5 sm:h-5">
-                        <path fill="currentColor"
-                        d="M11.983,0a12.206,12.206,0,0,0-8.51,3.653A11.8,11.8,0,0,0,0,12.207,11.779,11.779,0,0,0,11.8,24h.214A12.111,12.111,0,0,0,24,11.791h0A11.766,11.766,0,0,0,11.983,0ZM10.5,16.542a1.476,1.476,0,0,1,1.449-1.53h.027a1.527,1.527,0,0,1,1.523,1.47,1.475,1.475,0,0,1-1.449,1.53h-.027A1.529,1.529,0,0,1,10.5,16.542ZM11,12.5v-6a1,1,0,0,1,2,0v6a1,1,0,1,1-2,0Z">
-                        </path>
-                    </svg>
-                    <span class="text-red-800 font-semibold pl-6">Cannot create</span>
-                    <ul class="flex flex-col">
-                    @foreach ($errors->all() as $error)
-                        <li class="block sm:inline text-red-600 pl-6">{{ $error }}</li>
-                    @endforeach
-                    </ul>
+                <div class="flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 absolute z-20">
+                    <div class="flex items-center justify-center w-12 bg-red-500">
+                        <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 3.36667C10.8167 3.36667 3.3667 10.8167 3.3667 20C3.3667 29.1833 10.8167 36.6333 20 36.6333C29.1834 36.6333 36.6334 29.1833 36.6334 20C36.6334 10.8167 29.1834 3.36667 20 3.36667ZM19.1334 33.3333V22.9H13.3334L21.6667 6.66667V17.1H27.25L19.1334 33.3333Z" />
+                        </svg>
+                    </div>
+                
+                    <div class="px-4 py-2 -mx-3">
+                        <div class="mx-3">
+                            <span class="font-semibold text-red-500 dark:text-red-400">Error!</span>
+                            @foreach ($errors->all() as $error)
+                                <p class="text-sm text-gray-600 dark:text-gray-200">
+                                    {{ $error }}
+                                </p>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             @endif
             @yield('content')

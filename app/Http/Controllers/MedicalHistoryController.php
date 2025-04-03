@@ -64,6 +64,6 @@ class MedicalHistoryController extends Controller
     // delete
     function delete_medical_history($id) {
         $medical_history = MedicalHistory::destroy($id);
-        return redirect('/medicalhistories')->with('success', 'Medical history deleted.');
+        return redirect('/medicalhistories')->with('success', 'Medical history deleted correctly.');
     }
 }

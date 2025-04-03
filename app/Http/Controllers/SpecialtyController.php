@@ -62,6 +62,6 @@ class SpecialtyController extends Controller
     // delete
     function delete_specialty($id) {
         Specialty::destroy($id);
-        return redirect('/specialties')->with('success', 'Specialty deleted.');
+        return redirect('/specialties')->with('success', 'Specialty deleted correctly.');
     }
 }

@@ -32,7 +32,7 @@ class AppointmentController extends Controller
 
         Appointment::create($validator->validated());
 
-        return redirect('/appointments')->with('success', 'Patient created.');
+        return redirect('/appointments')->with('success', 'Appointment created correctly.');
     }
 
     // edit
@@ -61,7 +61,7 @@ class AppointmentController extends Controller
             ->withInput();
         }
 
-        $appointments->update($validator);
+        $appointments->update($validator->validated());
 
         return view('appointment', ['appointments' => $appointments]);
     }

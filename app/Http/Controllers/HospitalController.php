@@ -46,7 +46,7 @@ class HospitalController extends Controller
 
     // specialties section
     function specialties() {
-        $specialties = Specialty::orderby('id', 'desc')->paginate(7);
+        $specialties = Specialty::orderby('id', 'desc')->paginate(10);
         return view('specialty', compact('specialties'));
     }
 

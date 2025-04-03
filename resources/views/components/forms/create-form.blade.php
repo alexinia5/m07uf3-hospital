@@ -1,5 +1,5 @@
 <div class="relative h-full flex items-center justify-center bg-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8  bg-no-repeat bg-cover rounded-3xl"
-style="background-image: url(https://i.pinimg.com/originals/96/1e/7b/961e7b5ab22f51655970cc4e7bf2bd07.jpg);">
+style="background-image: url(https://img.freepik.com/premium-vector/vector-medical-technology-network-concept-design-hexagon-technology-frame-design_178863-1314.jpg); background-size: cover;">
     <div class="absolute bg-black opacity-20 inset-0 z-0 rounded-3xl"></div>
     <div class="max-w-md w-full space-y-8 p-10 bg-white rounded-xl shadow-lg z-10">
         <div class="grid gap-8 grid-cols-1">
@@ -12,7 +12,6 @@ style="background-image: url(https://i.pinimg.com/originals/96/1e/7b/961e7b5ab22
 
                 <form class="w-full max-w-lg flex flex-col items-center" action="{{ $route }}" method="POST">
                     @csrf
-                    @method('PUT')
                     <div class="flex flex-wrap -mx-3 mb-6">
                         @foreach ($data as $item)
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0 max-sm:mb-3">

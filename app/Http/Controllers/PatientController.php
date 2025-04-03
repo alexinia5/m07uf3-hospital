@@ -33,7 +33,7 @@ class PatientController extends Controller
 
         Patient::create($validator->validated());
 
-        return redirect('/')->with('success', 'Patient created.');
+        return redirect('/')->with('success', 'Patient created correctly.');
     }
 
     // edit
@@ -47,7 +47,7 @@ class PatientController extends Controller
         $patients = Patient::findOrFail($id);
 
         $validator = Validator::make($request->all(), [
-            'dni' => 'required|string|max:8',
+            'dni' => 'required|string|unique:patients,dni|max:8',
             'gender' => 'required|string',
             'name' => 'required|string|max:50',
             'phone' => 'required|digits:9',
@@ -68,6 +68,6 @@ class PatientController extends Controller
     // delete
     function delete_patient($id) {
         Patient::destroy($id);
-        return redirect('/')->with('success', 'Patient deleted.');
+        return redirect('/')->with('success', 'Patient deleted correctly.');
     }
 }

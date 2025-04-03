@@ -43,11 +43,10 @@ class NurseController extends Controller
         $nurses = Nurse::findOrFail($id);
 
         $validator = Validator::make($request->all(), [
-            'dni' => 'required|unique|string|max:8',
+            'dni' => 'required|unique:nurses,dni|string|max:8',
             'gender' => 'required|string',
             'name' => 'required|string|max:50',
             'phone' => 'required|integer|max:9',
-            'position' => 'required|string',
         ]);
 
         if ($validator->fails()) {
@@ -58,12 +57,14 @@ class NurseController extends Controller
 
         $nurses->update($validator->validated());
 
+        // session()->put('success', 'Nurse updated correctly.');
+
         return view('nurse', ['nurses' => $nurses]);
     }
 
     // delete
     function delete_nurse($id) {
         Nurse::destroy($id);
-        return redirect('/nurses')->with('success', 'Nurse deleted.');
+        return redirect('/nurses')->with('success', 'Nurse deleted correctly.');
     }
 }

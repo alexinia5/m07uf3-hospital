@@ -66,6 +66,6 @@ class RoomController extends Controller
     // delete
     function delete_room($id) {
         Room::destroy($id);
-        return redirect('/rooms')->with('success', 'Room deleted.');
+        return redirect('/rooms')->with('success', 'Room deleted correctly.');
     }
 }

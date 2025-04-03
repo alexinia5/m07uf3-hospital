@@ -75,6 +75,6 @@ class EmergencyController extends Controller
     // delete
     function delete_emergency($id) {
         Emergency::destroy($id);
-        return redirect('/emergencies')->with('success', 'Emergency deleted.');
+        return redirect('/emergencies')->with('success', 'Emergency deleted correctly.');
     }
 }

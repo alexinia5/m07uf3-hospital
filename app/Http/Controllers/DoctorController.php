@@ -47,7 +47,7 @@ class DoctorController extends Controller
         // dd($doctor);
     
         $validator = Validator::make($request->all(), [
-            'dni' => 'required|string|size:8',
+            'dni' => 'required|string|unique:doctors,dni|size:8',
             'gender' => 'required|string',
             'name' => 'required|string|max:50',
             'phone' => 'required|digits:9',
@@ -69,6 +69,6 @@ class DoctorController extends Controller
     // delete
     function delete_doctor($id) {
         Doctor::destroy($id);
-        return redirect('/doctors')->with('success', 'Doctor deleted.');
+        return redirect('/doctors')->with('success', 'Doctor deleted correctly.');
     }
 }
