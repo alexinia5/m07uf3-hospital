@@ -26,4 +26,15 @@
         :dataColumn="['ID', 'Date hour', 'Motive', 'Floor number', 'Observations', 'Doctor', 'Nurse', 'Patient', 'Actions']"
         :table="'appointments'"/>
     </div>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            let clickDates = document.querySelectorAll('.click-date');
+
+            for (let date of clickDates) {
+                date.addEventListener('click', (e) => {
+                    console.log(e.target)
+                })
+            }
+        });
+    </script>
 @endsection

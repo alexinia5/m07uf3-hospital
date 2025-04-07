@@ -8,12 +8,12 @@
         <div class="inline-flex gap-3">
             <div class="bg-white border border-neutral-300 p-4 w-52 rounded-xl">
                 <h3 class="text-base text-gray-600">Rooms Available</h3>
-                <h1 class="font-semibold text-2xl">4</h1>
+                <h1 class="font-semibold text-2xl">{{  $total_available }}</h1>
                 <p class="font-light text-sm">Last update: 1 week</p>
             </div>
             <div class="bg-white border border-neutral-300 p-4 w-52 rounded-xl">
                 <h3 class="text-base text-gray-600">Rooms Not Available</h3>
-                <h1 class="font-semibold text-2xl">4</h1>
+                <h1 class="font-semibold text-2xl">{{  $total_not_available }}</h1>
                 <p class="font-light text-sm">Last update: 1 week</p>
             </div>
         </div>

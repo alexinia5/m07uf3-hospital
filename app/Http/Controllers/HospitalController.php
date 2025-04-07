@@ -41,7 +41,18 @@ class HospitalController extends Controller
     // emergencies section
     function emergencies() {
         $emergencies = Emergency::orderby('level', 'desc')->paginate(7);
-        return view('emergency', compact('emergencies'));
+        $total_sever = Emergency::where('level', 'Sever')->count();
+        $total_moderate = Emergency::where('level', 'Moderate')->count();
+        $total_mild = Emergency::where('level', 'Mild')->count();
+        $total_low = Emergency::where('level', 'Low')->count();
+        
+        return view('emergency', compact(
+            'emergencies',
+            'total_sever',
+            'total_moderate',
+            'total_mild',
+            'total_low',
+        ));
     }
 
     // specialties section
@@ -59,6 +70,13 @@ class HospitalController extends Controller
     // rooms section
     function rooms() {
         $rooms = Room::orderby('id', 'desc')->paginate(8);
-        return view('room', compact('rooms'));
+        $total_available = Room::where('availability', 'Yes')->count();
+        $total_not_available = Room::where('availability', 'No')->count();
+       
+        return view('room', compact(
+            'rooms',
+            'total_available',
+            'total_not_available'
+        ));
     }
 }
