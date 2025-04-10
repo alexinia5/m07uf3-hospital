@@ -35,6 +35,7 @@ class HospitalController extends Controller
     // appointments section
     function appointments() {
         $appointments = Appointment::orderby('id', 'desc')->paginate(6);
+        // $date = Appointment::select('date_hour');
         return view('appointment', compact('appointments'));
     }
 

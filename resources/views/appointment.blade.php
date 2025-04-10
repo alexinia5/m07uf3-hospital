@@ -29,10 +29,15 @@
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
             let clickDates = document.querySelectorAll('.click-date');
+            let date;
 
             for (let date of clickDates) {
                 date.addEventListener('click', (e) => {
-                    console.log(e.target)
+                    dateClicked = e.target;
+
+                    if (dateClicked == {{ $date_hour }}) {
+                        console.log(dateClicked)
+                    }
                 })
             }
         });
